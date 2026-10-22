@@ -3,6 +3,357 @@ from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QColor
 from PyQt6.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout, QPushButton, QMainWindow, \
     QGraphicsDropShadowEffect, QLineEdit, QComboBox
+class Upperbody(QMainWindow):
+    def __init__(self, fereastra_upper=None):
+        super().__init__()
+        self.fereastra_upper = fereastra_upper
+        self.setWindowTitle('Fitlog - UpperBody')
+        self.resize(380, 720)
+        self.setFixedHeight(720)
+        self.setFixedWidth(380)
+        widgetprincipal = QWidget()
+        widgetprincipal.setObjectName('widgetprincipal')
+        widgetprincipal.setStyleSheet(
+            "#widgetprincipal{"
+            "border-image:url(C:/Users/HP/Desktop/PCLPPython/pozabackground.jpeg);"
+            "}"
+        )
+        widgetprincipal.setContentsMargins(40, 130, 40, 70)
+        layout = QVBoxLayout(widgetprincipal)
+        Titlul = QLabel("Upper Body")
+        Titlul.setStyleSheet("color: white; font-size: 40px; font-weight: bold; font-family: Comic Sans MS;")
+        layout.addWidget(Titlul, alignment=Qt.AlignmentFlag.AlignHCenter)
+        layout.addSpacing(40)
+        Chest = QPushButton("Chest")
+        Chest.setFixedHeight(50)
+        Chest.setFixedWidth(200)
+        Chest.setStyleSheet(
+            "QPushButton{"
+            "background-color: white;"
+            "border: none;"
+            "border-radius: 25px;"
+            "font-size: 25px;"
+            "font-family: Comic Sans MS;"
+            "font-weight: bold;"
+            "}"
+            "QPushButton:hover{"
+            "color: white;"
+            "background-color: black;"
+            "}"
+        )
+        shadow = QGraphicsDropShadowEffect()
+        shadow.setBlurRadius(0)
+        shadow.setOffset(0, 5)
+        shadow.setColor(QColor(85, 85, 85))
+        Chest.setGraphicsEffect(shadow)
+        layout.addWidget(Chest, alignment=Qt.AlignmentFlag.AlignHCenter)
+
+        layout.addSpacing(20)
+
+        Arms = QPushButton("Arms")
+        Arms.setFixedHeight(50)
+        Arms.setFixedWidth(200)
+        Arms.setStyleSheet(
+            "QPushButton{"
+            "background-color: white;"
+            "border: none;"
+            "border-radius: 25px;"
+            "font-size: 25px;"
+            "font-family: Comic Sans MS;"
+            "font-weight: bold;"
+            "}"
+            "QPushButton:hover{"
+            "color: white;"
+            "background-color: black;"
+            "}"
+        )
+        shadow = QGraphicsDropShadowEffect()
+        shadow.setBlurRadius(0)
+        shadow.setOffset(0, 5)
+        shadow.setColor(QColor(85, 85, 85))
+        Arms.setGraphicsEffect(shadow)
+        layout.addWidget(Arms, alignment=Qt.AlignmentFlag.AlignHCenter)
+
+        layout.addSpacing(20)
+        Shoulders = QPushButton("Shoulders")
+        Shoulders.setFixedHeight(50)
+        Shoulders.setFixedWidth(200)
+        Shoulders.setStyleSheet(
+            "QPushButton{"
+            "background-color: white;"
+            "border: none;"
+            "border-radius: 25px;"
+            "font-size: 25px;"
+            "font-family: Comic Sans MS;"
+            "font-weight: bold;"
+            "}"
+            "QPushButton:hover{"
+            "color: white;"
+            "background-color: black;"
+            "}"
+        )
+        shadow = QGraphicsDropShadowEffect()
+        shadow.setBlurRadius(0)
+        shadow.setOffset(0, 5)
+        shadow.setColor(QColor(85, 85, 85))
+        Shoulders.setGraphicsEffect(shadow)
+        layout.addWidget(Shoulders, alignment=Qt.AlignmentFlag.AlignHCenter)
+
+        layout.addSpacing(20)
+        Back= QPushButton("Back")
+        Back.setFixedHeight(50)
+        Back.setFixedWidth(200)
+        Back.setStyleSheet(
+            "QPushButton{"
+            "background-color: white;"
+            "border: none;"
+            "border-radius: 25px;"
+            "font-size: 25px;"
+            "font-family: Comic Sans MS;"
+            "font-weight: bold;"
+            "}"
+            "QPushButton:hover{"
+            "color: white;"
+            "background-color: black;"
+            "}"
+        )
+        shadow = QGraphicsDropShadowEffect()
+        shadow.setBlurRadius(0)
+        shadow.setOffset(0, 5)
+        shadow.setColor(QColor(85, 85, 85))
+        Back.setGraphicsEffect(shadow)
+        layout.addWidget(Back, alignment=Qt.AlignmentFlag.AlignHCenter)
+
+        layout.addSpacing(20)
+        layout.addStretch()
+        self.setCentralWidget(widgetprincipal)
+class Lowerbody(QMainWindow):
+    def __init__(self, fereastra_lower=None):
+        super().__init__()
+        self.fereastra_lower = fereastra_lower
+        self.setWindowTitle('Fitlog - LowerBody')
+        self.resize(380, 720)
+        self.setFixedHeight(720)
+        self.setFixedWidth(380)
+        widgetprincipal = QWidget()
+        widgetprincipal.setObjectName('widgetprincipal')
+        widgetprincipal.setStyleSheet(
+            "#widgetprincipal{"
+            "border-image:url(C:/Users/HP/Desktop/PCLPPython/pozabackground.jpeg);"
+            "}"
+        )
+        widgetprincipal.setContentsMargins(40, 160, 40, 70)
+        layout = QVBoxLayout(widgetprincipal)
+        Titlul = QLabel("Lower Body")
+        Titlul.setStyleSheet("color: white; font-size: 40px; font-weight: bold; font-family: Comic Sans MS;")
+        layout.addWidget(Titlul, alignment=Qt.AlignmentFlag.AlignHCenter)
+        layout.addSpacing(40)
+        Glutes = QPushButton("Glutes")
+        Glutes.setFixedHeight(50)
+        Glutes.setFixedWidth(200)
+        Glutes.setStyleSheet(
+            "QPushButton{"
+            "background-color: white;"
+            "border: none;"
+            "border-radius: 25px;"
+            "font-size: 25px;"
+            "font-family: Comic Sans MS;"
+            "font-weight: bold;"
+            "}"
+            "QPushButton:hover{"
+            "color: white;"
+            "background-color: black;"
+            "}"
+        )
+        shadow = QGraphicsDropShadowEffect()
+        shadow.setBlurRadius(0)
+        shadow.setOffset(0, 5)
+        shadow.setColor(QColor(85, 85, 85))
+        Glutes.setGraphicsEffect(shadow)
+        layout.addWidget(Glutes, alignment=Qt.AlignmentFlag.AlignHCenter)
+
+        layout.addSpacing(20)
+
+        Legs = QPushButton("Legs")
+        Legs.setFixedHeight(50)
+        Legs.setFixedWidth(200)
+        Legs.setStyleSheet(
+            "QPushButton{"
+            "background-color: white;"
+            "border: none;"
+            "border-radius: 25px;"
+            "font-size: 25px;"
+            "font-family: Comic Sans MS;"
+            "font-weight: bold;"
+            "}"
+            "QPushButton:hover{"
+            "color: white;"
+            "background-color: black;"
+            "}"
+        )
+        shadow = QGraphicsDropShadowEffect()
+        shadow.setBlurRadius(0)
+        shadow.setOffset(0, 5)
+        shadow.setColor(QColor(85, 85, 85))
+        Legs.setGraphicsEffect(shadow)
+        layout.addWidget(Legs, alignment=Qt.AlignmentFlag.AlignHCenter)
+
+        layout.addSpacing(20)
+
+        layout.addStretch()
+        self.setCentralWidget(widgetprincipal)
+class sport(QMainWindow):
+    def __init__(self, fereastra_sport=None):
+        super().__init__()
+        self.fereastra_sport = fereastra_sport
+        self.setWindowTitle('Fitlog - Sport')
+        self.resize(380, 720)
+        self.setFixedHeight(720)
+        self.setFixedWidth(380)
+        widgetprincipal = QWidget()
+        widgetprincipal.setObjectName('widgetprincipal')
+        widgetprincipal.setStyleSheet(
+            "#widgetprincipal{"
+            "border-image:url(C:/Users/HP/Desktop/PCLPPython/pozabackground.jpeg);"
+            "}"
+        )
+        widgetprincipal.setContentsMargins(40, 70, 40, 70)
+        layout = QVBoxLayout(widgetprincipal)
+        Question = QLabel(" What would \nyou like to do\n    today?")
+        Question.setStyleSheet("color: white; font-size: 30px; font-weight: bold; font-family: Comic Sans MS;")
+        layout.addWidget(Question, alignment=Qt.AlignmentFlag.AlignHCenter)
+        layout.addSpacing(40)
+        UpperBody = QPushButton("UpperBody")
+        UpperBody.setFixedHeight(50)
+        UpperBody.setFixedWidth(200)
+        UpperBody.setStyleSheet(
+            "QPushButton{"
+            "background-color: white;"
+            "border: none;"
+            "border-radius: 25px;"
+            "font-size: 25px;"
+            "font-family: Comic Sans MS;"
+            "font-weight: bold;"
+            "}"
+            "QPushButton:hover{"
+            "color: white;"
+            "background-color: black;"
+            "}"
+        )
+        shadow = QGraphicsDropShadowEffect()
+        shadow.setBlurRadius(0)
+        shadow.setOffset(0, 5)
+        shadow.setColor(QColor(85, 85, 85))
+        UpperBody.setGraphicsEffect(shadow)
+        layout.addWidget(UpperBody, alignment=Qt.AlignmentFlag.AlignHCenter)
+
+        layout.addSpacing(20)
+
+        LowerBody = QPushButton("LowerBody")
+        LowerBody.setFixedHeight(50)
+        LowerBody.setFixedWidth(200)
+        LowerBody.setStyleSheet(
+            "QPushButton{"
+            "background-color: white;"
+            "border: none;"
+            "border-radius: 25px;"
+            "font-size: 25px;"
+            "font-family: Comic Sans MS;"
+            "font-weight: bold;"
+            "}"
+            "QPushButton:hover{"
+            "color: white;"
+            "background-color: black;"
+            "}"
+        )
+        shadow = QGraphicsDropShadowEffect()
+        shadow.setBlurRadius(0)
+        shadow.setOffset(0, 5)
+        shadow.setColor(QColor(85, 85, 85))
+        LowerBody.setGraphicsEffect(shadow)
+        layout.addWidget(LowerBody, alignment=Qt.AlignmentFlag.AlignHCenter)
+
+        layout.addSpacing(20)
+        Core = QPushButton("Core")
+        Core.setFixedHeight(50)
+        Core.setFixedWidth(200)
+        Core.setStyleSheet(
+            "QPushButton{"
+            "background-color: white;"
+            "border: none;"
+            "border-radius: 25px;"
+            "font-size: 25px;"
+            "font-family: Comic Sans MS;"
+            "font-weight: bold;"
+            "}"
+            "QPushButton:hover{"
+            "color: white;"
+            "background-color: black;"
+            "}"
+        )
+        shadow = QGraphicsDropShadowEffect()
+        shadow.setBlurRadius(0)
+        shadow.setOffset(0, 5)
+        shadow.setColor(QColor(85, 85, 85))
+        Core.setGraphicsEffect(shadow)
+        layout.addWidget(Core, alignment=Qt.AlignmentFlag.AlignHCenter)
+
+        layout.addSpacing(20)
+        Cardio = QPushButton("Cardio")
+        Cardio.setFixedHeight(50)
+        Cardio.setFixedWidth(200)
+        Cardio.setStyleSheet(
+            "QPushButton{"
+            "background-color: white;"
+            "border: none;"
+            "border-radius: 25px;"
+            "font-size: 25px;"
+            "font-family: Comic Sans MS;"
+            "font-weight: bold;"
+            "}"
+            "QPushButton:hover{"
+            "color: white;"
+            "background-color: black;"
+            "}"
+        )
+        shadow = QGraphicsDropShadowEffect()
+        shadow.setBlurRadius(0)
+        shadow.setOffset(0, 5)
+        shadow.setColor(QColor(85, 85, 85))
+        Cardio.setGraphicsEffect(shadow)
+        layout.addWidget(Cardio, alignment=Qt.AlignmentFlag.AlignHCenter)
+
+        layout.addSpacing(20)
+        layout.addStretch()
+        UpperBody.clicked.connect(self.paginaupper)
+        LowerBody.clicked.connect(self.paginalower)
+        self.setCentralWidget(widgetprincipal)
+    def paginaupper(self):
+        self.fereastranoua=Upperbody(fereastra_upper=self)
+        self.fereastranoua.show()
+        self.hide()
+    def paginalower(self):
+        self.fereastranoua=Lowerbody(fereastra_lower=self)
+        self.fereastranoua.show()
+        self.hide()
+class food(QMainWindow):
+    def __init__(self, fereastra_food=None):
+        super().__init__()
+        self.fereastra_food = fereastra_food
+        self.setWindowTitle('Fitlog - Food')
+        self.resize(380, 720)
+        self.setFixedHeight(720)
+        self.setFixedWidth(380)
+        widgetprincipal = QWidget()
+        widgetprincipal.setObjectName('widgetprincipal')
+        widgetprincipal.setStyleSheet(
+            "#widgetprincipal{"
+            "border-image:url(C:/Users/HP/Desktop/PCLPPython/pozabackground.jpeg);"
+            "}"
+        )
+        widgetprincipal.setContentsMargins(40, 70, 40, 70)
+        layout = QVBoxLayout(widgetprincipal)
+        self.setCentralWidget(widgetprincipal)
 class paginadestart(QMainWindow):
     def __init__(self, fereastra_alege=None):
         super().__init__()
@@ -27,39 +378,22 @@ class paginadestart(QMainWindow):
         textinterest = QLabel("Choose your interest")
         textinterest.setStyleSheet("color: white; font-size: 25px; font-weight: bold; font-family: Comic Sans MS;")
         layout.addWidget(textinterest,alignment=Qt.AlignmentFlag.AlignHCenter)
-        layout.addSpacing(25)
-        Food = QPushButton("Food")
-        Food.setFixedHeight(45)
-        Food.setFixedWidth(160)
-        Food.setStyleSheet(
+        layout.addSpacing(35)
+        Sport = QPushButton("Sport")
+        Sport.setFixedHeight(50)
+        Sport.setFixedWidth(200)
+        Sport.setStyleSheet(
             "QPushButton{"
-            "color: black;"
             "background-color: white;"
             "border: none;"
-            "border-radius: 20px;"
-            "font-size: 15px;"
+            "border-radius: 25px;"
+            "font-size: 25px;"
             "font-family: Comic Sans MS;"
             "font-weight: bold;"
             "}"
-        )
-        shadow = QGraphicsDropShadowEffect()
-        shadow.setBlurRadius(0)
-        shadow.setOffset(0, 5)
-        shadow.setColor(QColor(85, 85, 85))
-        Food.setGraphicsEffect(shadow)
-        layout.addWidget(Food, alignment=Qt.AlignmentFlag.AlignHCenter)
-        Sport = QPushButton("Food")
-        Sport.setFixedHeight(45)
-        Sport.setFixedWidth(160)
-        Sport.setStyleSheet(
-            "QPushButton{"
-            "color: black;"
-            "background-color: white;"
-            "border: none;"
-            "border-radius: 20px;"
-            "font-size: 15px;"
-            "font-family: Comic Sans MS;"
-            "font-weight: bold;"
+            "QPushButton:hover{"
+            "color: white;"
+            "background-color: black;"
             "}"
         )
         shadow = QGraphicsDropShadowEffect()
@@ -68,8 +402,34 @@ class paginadestart(QMainWindow):
         shadow.setColor(QColor(85, 85, 85))
         Sport.setGraphicsEffect(shadow)
         layout.addWidget(Sport, alignment=Qt.AlignmentFlag.AlignHCenter)
+
+        layout.addSpacing(15)
+
+        Food = QPushButton("Food")
+        Food.setFixedHeight(50)
+        Food.setFixedWidth(200)
+        Food.setStyleSheet(Sport.styleSheet())
+        shadow2 = QGraphicsDropShadowEffect()
+        shadow2.setBlurRadius(0)
+        shadow2.setOffset(0, 5)
+        shadow2.setColor(QColor(85, 85, 85))
+        Food.setGraphicsEffect(shadow2)
+        layout.addWidget(Food, alignment=Qt.AlignmentFlag.AlignHCenter)
+
         layout.addStretch()
+        Sport.clicked.connect(self.meniusport)
+        Food.clicked.connect(self.meniumancare)
         self.setCentralWidget(widgetprincipal)
+    def meniusport(self):
+        self.fereastranoua=sport(fereastra_sport=self)
+        self.fereastranoua.show()
+        self.hide()
+    def meniumancare(self):
+        self.fereastranoua = food(fereastra_food=self)
+        self.fereastranoua.show()
+        self.hide()
+
+
 class inregistrare2(QMainWindow):
     def __init__(self, fereastra_sign2=None):
         super().__init__()
