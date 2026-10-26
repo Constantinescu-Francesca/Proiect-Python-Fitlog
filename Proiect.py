@@ -2,7 +2,7 @@ import sys
 from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QColor
 from PyQt6.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout, QPushButton, QMainWindow, \
-    QGraphicsDropShadowEffect, QLineEdit, QComboBox
+    QGraphicsDropShadowEffect, QLineEdit, QComboBox, QHBoxLayout
 class Upperbody(QMainWindow):
     def __init__(self, fereastra_upper=None):
         super().__init__()
@@ -837,6 +837,291 @@ class inregistrare(QMainWindow):
         self.fereastranoua = inregistrare2(fereastra_sign2=self)
         self.fereastranoua.show()
         self.hide()
+class Parolanoua(QMainWindow):
+    def __init__(self, fereastra_parola=None):
+        super().__init__()
+        self.fereastra_parola = fereastra_parola
+        self.setWindowTitle('Fitlog - Forgot your password')
+        self.resize(380, 720)
+        self.setFixedHeight(720)
+        self.setFixedWidth(380)
+        widgetprincipal = QWidget()
+        widgetprincipal.setObjectName('widgetprincipal')
+        widgetprincipal.setStyleSheet(
+            "#widgetprincipal{"
+            "border-image:url(C:/Users/HP/Desktop/PCLPPython/pozabackground.jpeg);"
+            "}"
+        )
+        widgetprincipal.setContentsMargins(40, 180, 40, 70)
+
+        layout = QVBoxLayout(widgetprincipal)
+        card = QWidget()
+        card.setObjectName('card')
+        card.setStyleSheet(
+            "#card{"
+            "background-color: white;"
+            "border: 1px solid black;"
+            "border-radius: 10px;"
+            "}"
+        )
+        layoutcard = QVBoxLayout(card)
+        password1 = QLabel("New password:")
+        password1.setStyleSheet(
+            "color: black;"
+            " font-size: 23px; "
+            "font-weight: bold; "
+            "font-family: Comic Sans MS;"
+
+        )
+        passwordtext1 = QLineEdit("")
+        passwordtext1.setFixedHeight(40)
+        passwordtext1.setPlaceholderText("Write....")
+        passwordtext1.setStyleSheet(
+            "QLineEdit{"
+            "color:gray;"
+            "background-color: white;"
+            "border: 1px solid black;"
+            "border-radius: 20px;"
+            "font-size: 15px;"
+            "font-family: Comic Sans MS;"
+            "font-weight: bold;"
+            "}"
+            "QLineEdit:focus{"
+            "border : 1px solid pink;"
+            "}"
+        )
+        passwordtext1.setEchoMode(QLineEdit.EchoMode.Password)
+        password2 = QLabel("Confirm new password:")
+        password2.setStyleSheet(
+            "color: black;"
+            " font-size: 23px; "
+            "font-weight: bold; "
+            "font-family: Comic Sans MS;"
+
+        )
+        passwordtext2 = QLineEdit("")
+        passwordtext2.setFixedHeight(40)
+        passwordtext2.setPlaceholderText("Write....")
+        passwordtext2.setStyleSheet(
+            "QLineEdit{"
+            "color:gray;"
+            "background-color: white;"
+            "border: 1px solid black;"
+            "border-radius: 20px;"
+            "font-size: 15px;"
+            "font-family: Comic Sans MS;"
+            "font-weight: bold;"
+            "}"
+            "QLineEdit:focus{"
+            "border : 1px solid pink;"
+            "}"
+        )
+        passwordtext2.setEchoMode(QLineEdit.EchoMode.Password)
+        Reset = QPushButton("Reset")
+        Reset.setFixedHeight(40)
+        Reset.setFixedWidth(150)
+        Reset.setStyleSheet(
+            "QPushButton{"
+            "color: white;"
+            "background-color: black;"
+            "border: none;"
+            "border-radius: 20px;"
+            "font-size: 20px;"
+            "font-family: Comic Sans MS;"
+            "font-weight: bold;"
+            "}"
+        )
+        shadow = QGraphicsDropShadowEffect()
+        shadow.setBlurRadius(0)
+        shadow.setOffset(0, 5)
+        shadow.setColor(QColor(85, 85, 85))
+        Reset.setGraphicsEffect(shadow)
+        layoutcard.addWidget(password1)
+        layoutcard.addWidget(passwordtext1)
+        layoutcard.addSpacing(20)
+        layoutcard.addWidget(password2)
+        layoutcard.addWidget(passwordtext2)
+        layoutcard.addSpacing(20)
+        layoutcard.addWidget(Reset, alignment=Qt.AlignmentFlag.AlignHCenter)
+        layout.addWidget(card)
+        layout.addStretch()
+        Reset.clicked.connect(self.reseteaza)
+        self.setCentralWidget(widgetprincipal)
+    def reseteaza(self):
+        self.fereastranoua = logare(fereastra_anterioara=self)
+        self.fereastranoua.show()
+        self.hide()
+class Code(QMainWindow):
+    def __init__(self, fereastra_send=None):
+        super().__init__()
+        self.fereastra_send = fereastra_send
+        self.setWindowTitle('Fitlog - Forgot your password')
+        self.resize(380, 720)
+        self.setFixedHeight(720)
+        self.setFixedWidth(380)
+        widgetprincipal = QWidget()
+        widgetprincipal.setObjectName('widgetprincipal')
+        widgetprincipal.setStyleSheet(
+            "#widgetprincipal{"
+            "border-image:url(C:/Users/HP/Desktop/PCLPPython/pozabackground.jpeg);"
+            "}"
+        )
+        widgetprincipal.setContentsMargins(40, 180, 40, 70)
+
+        layout = QVBoxLayout(widgetprincipal)
+        card = QWidget()
+        card.setObjectName('card')
+        card.setStyleSheet(
+            "#card{"
+            "background-color: white;"
+            "border: 1px solid black;"
+            "border-radius: 10px;"
+            "}"
+        )
+        layoutcard = QVBoxLayout(card)
+        cod = QLabel("Enter your code:")
+        cod.setStyleSheet(
+            "color: black;"
+            " font-size: 25px; "
+            "font-weight: bold; "
+            "font-family: Comic Sans MS;"
+
+        )
+
+        layoutcard.addWidget(cod)
+        layoutcard.addSpacing(10)
+        layout_code_boxes = QHBoxLayout()
+        stil_liniuta = "QLineEdit { border: none; border-bottom: 3px solid black; font-size: 22px; font-weight: bold; background: transparent; } QLineEdit:focus { border-bottom: 3px solid pink; }"
+
+        self.inputs = []
+        for i in range(4):
+            box = QLineEdit()
+            box.setFixedWidth(35)
+            box.setFixedHeight(45)
+            box.setMaxLength(1)
+            box.setAlignment(Qt.AlignmentFlag.AlignCenter)
+            box.setStyleSheet(stil_liniuta)
+            layout_code_boxes.addWidget(box)
+            self.inputs.append(box)
+
+
+        self.inputs[0].textChanged.connect(lambda t: self.inputs[1].setFocus() if t else None)
+        self.inputs[1].textChanged.connect(lambda t: self.inputs[2].setFocus() if t else None)
+        self.inputs[2].textChanged.connect(lambda t: self.inputs[3].setFocus() if t else None)
+
+        layoutcard.addLayout(layout_code_boxes)
+        layoutcard.addSpacing(25)
+
+        Verify = QPushButton("Verify")
+        Verify.setFixedHeight(40)
+        Verify.setFixedWidth(160)
+        Verify.setStyleSheet(
+            "QPushButton{color: white; background-color: black; border-radius: 15px; font-size: 15px; font-weight: bold; font-family: Comic Sans MS;}")
+
+        shadow = QGraphicsDropShadowEffect()
+        shadow.setBlurRadius(0)
+        shadow.setOffset(0, 5)
+        shadow.setColor(QColor(85, 85, 85))
+        Verify.setGraphicsEffect(shadow)
+
+        layoutcard.addWidget(Verify, alignment=Qt.AlignmentFlag.AlignHCenter)
+        layoutcard.addSpacing(10)
+        layout.addWidget(card)
+        layout.addStretch()
+        Verify.clicked.connect(self.facemparolanoua)
+        self.setCentralWidget(widgetprincipal)
+    def facemparolanoua(self):
+        self.fereastranoua = Parolanoua(fereastra_parola=self)
+        self.fereastranoua.show()
+        self.hide()
+class Uitareparola(QMainWindow):
+    def __init__(self, fereastra_uitare=None):
+        super().__init__()
+        self.fereastra_uitare = fereastra_uitare
+        self.setWindowTitle('Fitlog - Forgot your password')
+        self.resize(380, 720)
+        self.setFixedHeight(720)
+        self.setFixedWidth(380)
+        widgetprincipal = QWidget()
+        widgetprincipal.setObjectName('widgetprincipal')
+        widgetprincipal.setStyleSheet(
+            "#widgetprincipal{"
+            "border-image:url(C:/Users/HP/Desktop/PCLPPython/pozabackground.jpeg);"
+            "}"
+        )
+        widgetprincipal.setContentsMargins(40, 5, 40, 70)
+
+        layout = QVBoxLayout(widgetprincipal)
+        textlogin = QLabel("Log in")
+        textlogin.setStyleSheet("color: white; font-size: 25px; font-weight: bold; font-family: Comic Sans MS;")
+        layout.addWidget(textlogin)
+        layout.addSpacing(140)
+        card = QWidget()
+        card.setObjectName('card')
+        card.setStyleSheet(
+            "#card{"
+            "background-color: white;"
+            "border: 1px solid black;"
+            "border-radius: 10px;"
+            "}"
+        )
+        layoutcard = QVBoxLayout(card)
+        email = QLabel("Write your email to \nreceive a code:")
+        email.setStyleSheet(
+            "color: black;"
+            " font-size: 20px; "
+            "font-weight: bold; "
+            "font-family: Comic Sans MS;"
+
+        )
+        emailtext = QLineEdit()
+        emailtext.setPlaceholderText("Write...")
+        emailtext.setFixedHeight(40)
+        emailtext.setStyleSheet(
+            "QLineEdit{"
+            "color:gray;"
+            "background-color: white;"
+            "border: 1px solid black;"
+            "border-radius: 20px;"
+            "font-size: 15px;"
+            "font-family: Comic Sans MS;"
+            "font-weight: bold;"
+            "}"
+            "QLineEdit::focus{"
+            "border : 1px solid pink;"
+            "}"
+        )
+        sendcode=QPushButton("Send Code")
+        sendcode.setFixedHeight(40)
+        sendcode.setFixedWidth(150)
+        sendcode.setStyleSheet(
+            "QPushButton{"
+            "color: white;"
+            "background-color: black;"
+            "border: none;"
+            "border-radius: 20px;"
+            "font-size: 15px;"
+            "font-family: Comic Sans MS;"
+            "font-weight: bold;"
+            "}"
+        )
+        shadow = QGraphicsDropShadowEffect()
+        shadow.setBlurRadius(0)
+        shadow.setOffset(0, 5)
+        shadow.setColor(QColor(85, 85, 85))
+        sendcode.setGraphicsEffect(shadow)
+        layoutcard.addWidget(email)
+        layoutcard.addWidget(emailtext)
+        layoutcard.addSpacing(20)
+        layoutcard.addWidget(sendcode, alignment=Qt.AlignmentFlag.AlignHCenter)
+        layout.addWidget(card)
+        layout.addStretch()
+        sendcode.clicked.connect(self.primirecod)
+        self.setCentralWidget(widgetprincipal)
+    def primirecod(self):
+        self.fereastranoua=Code(fereastra_send=self)
+        self.fereastranoua.show()
+        self.hide()
 
 class logare(QMainWindow):
     def __init__(self, fereastra_anterioara=None):
@@ -923,26 +1208,33 @@ class logare(QMainWindow):
         )
         passwordtext.setEchoMode(QLineEdit.EchoMode.Password)
 
-        intrebare=QLabel("Forgot your password?")
+        intrebare = QPushButton("Forgot your password?")
+        intrebare.setCursor(Qt.CursorShape.PointingHandCursor)
         intrebare.setStyleSheet(
-            "QLabel{"
-            "color:black; font-size: 12px; font-family: Comic Sans MS;"
+            "QPushButton {"
+            "   color: black; "
+            "   font-size: 12px; "
+            "   font-family: 'Comic Sans MS'; "
+            "   background: transparent; "
+            "   border: none; "
+            "   text-align: left; "
             "}"
-            "QLabel:hover{"
-             "color:blue;"
-            "font:underline 12px 'Comic Sans MS';"
+            "QPushButton:hover {"
+            "   color: blue; "
+            "   text-decoration: underline; "
             "}"
         )
+        intrebare.clicked.connect(self.uitareparola)
         Getin=QPushButton("Get in")
-        Getin.setFixedHeight(30)
-        Getin.setFixedWidth(160)
+        Getin.setFixedHeight(40)
+        Getin.setFixedWidth(150)
         Getin.setStyleSheet(
             "QPushButton{"
             "color: white;"
             "background-color: black;"
             "border: none;"
-            "border-radius: 15px;"
-            "font-size: 15px;"
+            "border-radius: 20px;"
+            "font-size: 20px;"
             "font-family: Comic Sans MS;"
             "font-weight: bold;"
             "}"
@@ -963,8 +1255,16 @@ class logare(QMainWindow):
         layoutcard.addWidget(Getin, alignment=Qt.AlignmentFlag.AlignHCenter)
         layout.addWidget(card)
         layout.addStretch()
+        Getin.clicked.connect(self.intrarecont)
         self.setCentralWidget(widgetprincipal)
-
+    def intrarecont(self):
+        self.fereastranoua = paginadestart(fereastra_alege=self)
+        self.fereastranoua.show()
+        self.hide()
+    def uitareparola(self):
+        self.fereastranoua = Uitareparola(fereastra_uitare=self)
+        self.fereastranoua.show()
+        self.hide()
 class primaclasa(QMainWindow):
     def __init__(self):
         super().__init__()
