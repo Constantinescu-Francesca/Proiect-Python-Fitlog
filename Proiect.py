@@ -21,7 +21,7 @@ class Upperbody(QMainWindow):
         widgetprincipal.setContentsMargins(40, 130, 40, 70)
         layout = QVBoxLayout(widgetprincipal)
         Titlul = QLabel("Upper Body")
-        Titlul.setStyleSheet("color: white; font-size: 40px; font-weight: bold; font-family: Comic Sans MS;")
+        Titlul.setStyleSheet("color: white; font-size: 40px; font-weight: bold; font-family: Segoe UI;")
         layout.addWidget(Titlul, alignment=Qt.AlignmentFlag.AlignHCenter)
         layout.addSpacing(40)
         Chest = QPushButton("Chest")
@@ -33,7 +33,7 @@ class Upperbody(QMainWindow):
             "border: none;"
             "border-radius: 25px;"
             "font-size: 25px;"
-            "font-family: Comic Sans MS;"
+            "font-family: Segoe UI;"
             "font-weight: bold;"
             "}"
             "QPushButton:hover{"
@@ -59,7 +59,7 @@ class Upperbody(QMainWindow):
             "border: none;"
             "border-radius: 25px;"
             "font-size: 25px;"
-            "font-family: Comic Sans MS;"
+            "font-family: Segoe UI;"
             "font-weight: bold;"
             "}"
             "QPushButton:hover{"
@@ -84,7 +84,7 @@ class Upperbody(QMainWindow):
             "border: none;"
             "border-radius: 25px;"
             "font-size: 25px;"
-            "font-family: Comic Sans MS;"
+            "font-family: Segoe UI;"
             "font-weight: bold;"
             "}"
             "QPushButton:hover{"
@@ -109,7 +109,7 @@ class Upperbody(QMainWindow):
             "border: none;"
             "border-radius: 25px;"
             "font-size: 25px;"
-            "font-family: Comic Sans MS;"
+            "font-family: Segoe UI;"
             "font-weight: bold;"
             "}"
             "QPushButton:hover{"
@@ -123,7 +123,6 @@ class Upperbody(QMainWindow):
         shadow.setColor(QColor(85, 85, 85))
         Back.setGraphicsEffect(shadow)
         layout.addWidget(Back, alignment=Qt.AlignmentFlag.AlignHCenter)
-
         layout.addSpacing(20)
         layout.addStretch()
         self.setCentralWidget(widgetprincipal)
@@ -145,7 +144,7 @@ class Lowerbody(QMainWindow):
         widgetprincipal.setContentsMargins(40, 160, 40, 70)
         layout = QVBoxLayout(widgetprincipal)
         Titlul = QLabel("Lower Body")
-        Titlul.setStyleSheet("color: white; font-size: 40px; font-weight: bold; font-family: Comic Sans MS;")
+        Titlul.setStyleSheet("color: white; font-size: 40px; font-weight: bold; font-family: Segoe UI;")
         layout.addWidget(Titlul, alignment=Qt.AlignmentFlag.AlignHCenter)
         layout.addSpacing(40)
         Glutes = QPushButton("Glutes")
@@ -157,7 +156,7 @@ class Lowerbody(QMainWindow):
             "border: none;"
             "border-radius: 25px;"
             "font-size: 25px;"
-            "font-family: Comic Sans MS;"
+            "font-family: Segoe UI;"
             "font-weight: bold;"
             "}"
             "QPushButton:hover{"
@@ -183,7 +182,7 @@ class Lowerbody(QMainWindow):
             "border: none;"
             "border-radius: 25px;"
             "font-size: 25px;"
-            "font-family: Comic Sans MS;"
+            "font-family: Segoe UI;"
             "font-weight: bold;"
             "}"
             "QPushButton:hover{"
@@ -220,7 +219,7 @@ class sport(QMainWindow):
         widgetprincipal.setContentsMargins(40, 70, 40, 70)
         layout = QVBoxLayout(widgetprincipal)
         Question = QLabel(" What would \nyou like to do\n    today?")
-        Question.setStyleSheet("color: white; font-size: 30px; font-weight: bold; font-family: Comic Sans MS;")
+        Question.setStyleSheet("color: white; font-size: 30px; font-weight: bold; font-family: Segoe UI;")
         layout.addWidget(Question, alignment=Qt.AlignmentFlag.AlignHCenter)
         layout.addSpacing(40)
         UpperBody = QPushButton("UpperBody")
@@ -232,7 +231,7 @@ class sport(QMainWindow):
             "border: none;"
             "border-radius: 25px;"
             "font-size: 25px;"
-            "font-family: Comic Sans MS;"
+            "font-family: Segoe UI;"
             "font-weight: bold;"
             "}"
             "QPushButton:hover{"
@@ -258,7 +257,7 @@ class sport(QMainWindow):
             "border: none;"
             "border-radius: 25px;"
             "font-size: 25px;"
-            "font-family: Comic Sans MS;"
+            "font-family: Segoe UI;"
             "font-weight: bold;"
             "}"
             "QPushButton:hover{"
@@ -283,7 +282,7 @@ class sport(QMainWindow):
             "border: none;"
             "border-radius: 25px;"
             "font-size: 25px;"
-            "font-family: Comic Sans MS;"
+            "font-family: Segoe UI;"
             "font-weight: bold;"
             "}"
             "QPushButton:hover{"
@@ -308,7 +307,7 @@ class sport(QMainWindow):
             "border: none;"
             "border-radius: 25px;"
             "font-size: 25px;"
-            "font-family: Comic Sans MS;"
+            "font-family: Segoe UI;"
             "font-weight: bold;"
             "}"
             "QPushButton:hover{"
@@ -372,11 +371,11 @@ class paginadestart(QMainWindow):
         widgetprincipal.setContentsMargins(40, 70, 40, 70)
         layout = QVBoxLayout(widgetprincipal)
         textwelcome = QLabel("Welcome to\nyour fitness\n  journal!")
-        textwelcome.setStyleSheet("color: white; font-size: 40px; font-weight: bold; font-family: Comic Sans MS;")
+        textwelcome.setStyleSheet("color: white; font-size: 40px; font-weight: bold; font-family: Segoe UI;")
         layout.addWidget(textwelcome,alignment=Qt.AlignmentFlag.AlignHCenter)
         layout.addSpacing(40)
         textinterest = QLabel("Choose your interest")
-        textinterest.setStyleSheet("color: white; font-size: 25px; font-weight: bold; font-family: Comic Sans MS;")
+        textinterest.setStyleSheet("color: white; font-size: 25px; font-weight: bold; font-family: Segoe UI;")
         layout.addWidget(textinterest,alignment=Qt.AlignmentFlag.AlignHCenter)
         layout.addSpacing(35)
         Sport = QPushButton("Sport")
@@ -388,7 +387,7 @@ class paginadestart(QMainWindow):
             "border: none;"
             "border-radius: 25px;"
             "font-size: 25px;"
-            "font-family: Comic Sans MS;"
+            "font-family: Segoe UI;"
             "font-weight: bold;"
             "}"
             "QPushButton:hover{"
@@ -448,11 +447,11 @@ class inregistrare2(QMainWindow):
         widgetprincipal.setContentsMargins(40, 5, 40, 70)
         layout = QVBoxLayout(widgetprincipal)
         textsignin = QLabel("Sign in")
-        textsignin.setStyleSheet("color: white; font-size: 25px; font-weight: bold; font-family: Comic Sans MS;")
+        textsignin.setStyleSheet("color: white; font-size: 25px; font-weight: bold; font-family: Segoe UI;")
         layout.addWidget(textsignin)
         layout.addSpacing(60)
         textpagina = QLabel("2/2")
-        textpagina.setStyleSheet("color: white; font-size: 15px; font-weight: bold; font-family: Comic Sans MS;")
+        textpagina.setStyleSheet("color: white; font-size: 15px; font-weight: bold; font-family: Segoe UI;")
         layout.addWidget(textpagina, 0, alignment=Qt.AlignmentFlag.AlignRight)
         card = QWidget()
         card.setObjectName('card')
@@ -469,7 +468,7 @@ class inregistrare2(QMainWindow):
             "color: black;"
             " font-size: 25px; "
             "font-weight: bold; "
-            "font-family: Comic Sans MS;"
+            "font-family: Segoe UI;"
 
         )
         Heighttext = QLineEdit()
@@ -482,7 +481,7 @@ class inregistrare2(QMainWindow):
             "border: 1px solid black;"
             "border-radius: 20px;"
             "font-size: 15px;"
-            "font-family: Comic Sans MS;"
+            "font-family: Segoe UI;"
             "font-weight: bold;"
             "}"
             "QLineEdit::focus{"
@@ -495,7 +494,7 @@ class inregistrare2(QMainWindow):
             "color: black;"
             " font-size: 25px; "
             "font-weight: bold; "
-            "font-family: Comic Sans MS;"
+            "font-family: Segoe UI;"
 
         )
         Weighttext = QLineEdit("")
@@ -508,7 +507,7 @@ class inregistrare2(QMainWindow):
             "border: 1px solid black;"
             "border-radius: 20px;"
             "font-size: 15px;"
-            "font-family: Comic Sans MS;"
+            "font-family: Segoe UI;"
             "font-weight: bold;"
             "}"
             "QLineEdit:focus{"
@@ -520,7 +519,7 @@ class inregistrare2(QMainWindow):
             "color: black;"
             " font-size: 25px; "
             "font-weight: bold; "
-            "font-family: Comic Sans MS;"
+            "font-family: Segoe UI;"
 
         )
         sagetica1=QComboBox()
@@ -538,7 +537,7 @@ class inregistrare2(QMainWindow):
     "    padding: 10px 15px;"
     "    font-size: 15px;"
     "    font-weight: bold;"
-            "font-family:Comic Sans MS;"
+            "font-family:Segoe UI;"
     "}"
     "QComboBox:hover {"
     "    border: 1px solid pink;"
@@ -552,7 +551,7 @@ class inregistrare2(QMainWindow):
     "QComboBox QAbstractItemView {"
     "    background-color: pink;"
     "    color: black;"
-        "font-family: Comic Sans MS;"
+        "font-family: Segoe UI;"
     "    border: 1px solid white;"
     "    selection-background-color: pink;"
     "    selection-color: white;"
@@ -564,7 +563,7 @@ class inregistrare2(QMainWindow):
             "color: black;"
             " font-size: 25px; "
             "font-weight: bold; "
-            "font-family: Comic Sans MS;"
+            "font-family: Segoe UI;"
 
         )
 
@@ -582,7 +581,7 @@ class inregistrare2(QMainWindow):
             "    padding: 10px 15px;"
             "    font-size: 15px;"
             "    font-weight: bold;"
-            "font-family:Comic Sans MS;"
+            "font-family:Segoe UI;"
             "}"
             "QComboBox:hover {"
             "    border: 1px solid pink;"
@@ -596,7 +595,7 @@ class inregistrare2(QMainWindow):
             "QComboBox QAbstractItemView {"
             "    background-color: pink;"
             "    color: black;"
-            "font-family: Comic Sans MS;"
+            "font-family: Segoe UI;"
             "    border: 1px solid white;"
             "    selection-background-color: pink;"
             "    selection-color: white;"
@@ -608,7 +607,7 @@ class inregistrare2(QMainWindow):
             "color: black;"
             " font-size: 25px; "
             "font-weight: bold; "
-            "font-family: Comic Sans MS;"
+            "font-family: Segoe UI;"
 
         )
         Createaccount = QPushButton("Create account")
@@ -621,7 +620,7 @@ class inregistrare2(QMainWindow):
             "border: none;"
             "border-radius: 15px;"
             "font-size: 15px;"
-            "font-family: Comic Sans MS;"
+            "font-family: Segoe UI;"
             "font-weight: bold;"
             "}"
         )
@@ -673,11 +672,11 @@ class inregistrare(QMainWindow):
         widgetprincipal.setContentsMargins(40, 4, 40, 70)
         layout = QVBoxLayout(widgetprincipal)
         textsignin=QLabel("Sign in")
-        textsignin.setStyleSheet("color: white; font-size: 25px; font-weight: bold; font-family: Comic Sans MS;")
+        textsignin.setStyleSheet("color: white; font-size: 25px; font-weight: bold; font-family: Segoe UI;")
         layout.addWidget(textsignin)
         layout.addSpacing(80)
         textpagina=QLabel("1/2")
-        textpagina.setStyleSheet("color: white; font-size: 15px; font-weight: bold; font-family: Comic Sans MS;")
+        textpagina.setStyleSheet("color: white; font-size: 15px; font-weight: bold; font-family: Segoe UI;")
         layout.addWidget(textpagina,0,alignment=Qt.AlignmentFlag.AlignRight)
         layout.addSpacing(0)
         card = QWidget()
@@ -695,7 +694,7 @@ class inregistrare(QMainWindow):
             "color: black;"
             " font-size: 25px; "
             "font-weight: bold; "
-            "font-family: Comic Sans MS;"
+            "font-family: Segoe UI;"
 
         )
         fullnametext = QLineEdit()
@@ -708,7 +707,7 @@ class inregistrare(QMainWindow):
             "border: 1px solid black;"
             "border-radius: 20px;"
             "font-size: 15px;"
-            "font-family: Comic Sans MS;"
+            "font-family: Segoe UI;"
             "font-weight: bold;"
             "}"
             "QLineEdit::focus{"
@@ -721,7 +720,7 @@ class inregistrare(QMainWindow):
             "color: black;"
             " font-size: 25px; "
             "font-weight: bold; "
-            "font-family: Comic Sans MS;"
+            "font-family: Segoe UI;"
 
         )
         agetext = QLineEdit("")
@@ -734,7 +733,7 @@ class inregistrare(QMainWindow):
             "border: 1px solid black;"
             "border-radius: 20px;"
             "font-size: 15px;"
-            "font-family: Comic Sans MS;"
+            "font-family: Segoe UI;"
             "font-weight: bold;"
             "}"
             "QLineEdit:focus{"
@@ -746,7 +745,7 @@ class inregistrare(QMainWindow):
             "color: black;"
             " font-size: 25px; "
             "font-weight: bold; "
-            "font-family: Comic Sans MS;"
+            "font-family: Segoe UI;"
 
         )
         emailtext = QLineEdit()
@@ -759,7 +758,7 @@ class inregistrare(QMainWindow):
             "border: 1px solid black;"
             "border-radius: 20px;"
             "font-size: 15px;"
-            "font-family: Comic Sans MS;"
+            "font-family: Segoe UI;"
             "font-weight: bold;"
             "}"
             "QLineEdit::focus{"
@@ -772,7 +771,7 @@ class inregistrare(QMainWindow):
             "color: black;"
             " font-size: 25px; "
             "font-weight: bold; "
-            "font-family: Comic Sans MS;"
+            "font-family: Segoe UI;"
 
         )
         passwordtext = QLineEdit("")
@@ -785,7 +784,7 @@ class inregistrare(QMainWindow):
             "border: 1px solid black;"
             "border-radius: 20px;"
             "font-size: 15px;"
-            "font-family: Comic Sans MS;"
+            "font-family: Segoe UI;"
             "font-weight: bold;"
             "}"
             "QLineEdit:focus{"
@@ -802,7 +801,7 @@ class inregistrare(QMainWindow):
             "border: none;"
             "border-radius: 15px;"
             "font-size: 15px;"
-            "font-family: Comic Sans MS;"
+            "font-family: Segoe UI;"
             "font-weight: bold;"
             "}"
         )
@@ -870,7 +869,7 @@ class Parolanoua(QMainWindow):
             "color: black;"
             " font-size: 23px; "
             "font-weight: bold; "
-            "font-family: Comic Sans MS;"
+            "font-family: Segoe UI;"
 
         )
         passwordtext1 = QLineEdit("")
@@ -883,7 +882,7 @@ class Parolanoua(QMainWindow):
             "border: 1px solid black;"
             "border-radius: 20px;"
             "font-size: 15px;"
-            "font-family: Comic Sans MS;"
+            "font-family: Segoe UI;"
             "font-weight: bold;"
             "}"
             "QLineEdit:focus{"
@@ -896,7 +895,7 @@ class Parolanoua(QMainWindow):
             "color: black;"
             " font-size: 23px; "
             "font-weight: bold; "
-            "font-family: Comic Sans MS;"
+            "font-family: Segoe UI;"
 
         )
         passwordtext2 = QLineEdit("")
@@ -909,7 +908,7 @@ class Parolanoua(QMainWindow):
             "border: 1px solid black;"
             "border-radius: 20px;"
             "font-size: 15px;"
-            "font-family: Comic Sans MS;"
+            "font-family: Segoe UI;"
             "font-weight: bold;"
             "}"
             "QLineEdit:focus{"
@@ -927,7 +926,7 @@ class Parolanoua(QMainWindow):
             "border: none;"
             "border-radius: 20px;"
             "font-size: 20px;"
-            "font-family: Comic Sans MS;"
+            "font-family: Segoe UI;"
             "font-weight: bold;"
             "}"
         )
@@ -984,7 +983,7 @@ class Code(QMainWindow):
             "color: black;"
             " font-size: 25px; "
             "font-weight: bold; "
-            "font-family: Comic Sans MS;"
+            "font-family: Segoe UI;"
 
         )
 
@@ -1010,20 +1009,36 @@ class Code(QMainWindow):
         self.inputs[2].textChanged.connect(lambda t: self.inputs[3].setFocus() if t else None)
 
         layoutcard.addLayout(layout_code_boxes)
-        layoutcard.addSpacing(25)
-
+        layoutcard.addSpacing(15)
+        intrebare = QPushButton("Resend code")
+        intrebare.setCursor(Qt.CursorShape.PointingHandCursor)
+        intrebare.setStyleSheet(
+            "QPushButton {"
+            "   color: black; "
+            "   font-size: 16px; "
+            "   font-family: 'Segoe UI'; "
+            "   background: transparent; "
+            "   border: none; "
+            "   text-align: left; "
+            "}"
+            "QPushButton:hover {"
+            "   color: blue; "
+            "   text-decoration: underline; "
+            "}"
+        )
         Verify = QPushButton("Verify")
         Verify.setFixedHeight(40)
         Verify.setFixedWidth(160)
         Verify.setStyleSheet(
-            "QPushButton{color: white; background-color: black; border-radius: 15px; font-size: 15px; font-weight: bold; font-family: Comic Sans MS;}")
+            "QPushButton{color: white; background-color: black; border-radius: 15px; font-size: 15px; font-weight: bold; font-family: Segoe UI;}")
 
         shadow = QGraphicsDropShadowEffect()
         shadow.setBlurRadius(0)
         shadow.setOffset(0, 5)
         shadow.setColor(QColor(85, 85, 85))
         Verify.setGraphicsEffect(shadow)
-
+        layoutcard.addWidget(intrebare, alignment=Qt.AlignmentFlag.AlignRight)
+        layoutcard.addSpacing(20)
         layoutcard.addWidget(Verify, alignment=Qt.AlignmentFlag.AlignHCenter)
         layoutcard.addSpacing(10)
         layout.addWidget(card)
@@ -1053,7 +1068,7 @@ class Uitareparola(QMainWindow):
 
         layout = QVBoxLayout(widgetprincipal)
         textlogin = QLabel("Log in")
-        textlogin.setStyleSheet("color: white; font-size: 25px; font-weight: bold; font-family: Comic Sans MS;")
+        textlogin.setStyleSheet("color: white; font-size: 25px; font-weight: bold; font-family: Segoe UI;")
         layout.addWidget(textlogin)
         layout.addSpacing(140)
         card = QWidget()
@@ -1071,7 +1086,7 @@ class Uitareparola(QMainWindow):
             "color: black;"
             " font-size: 20px; "
             "font-weight: bold; "
-            "font-family: Comic Sans MS;"
+            "font-family: Segoe UI;"
 
         )
         emailtext = QLineEdit()
@@ -1084,7 +1099,7 @@ class Uitareparola(QMainWindow):
             "border: 1px solid black;"
             "border-radius: 20px;"
             "font-size: 15px;"
-            "font-family: Comic Sans MS;"
+            "font-family: Segoe UI;"
             "font-weight: bold;"
             "}"
             "QLineEdit::focus{"
@@ -1101,7 +1116,7 @@ class Uitareparola(QMainWindow):
             "border: none;"
             "border-radius: 20px;"
             "font-size: 15px;"
-            "font-family: Comic Sans MS;"
+            "font-family: Segoe UI;"
             "font-weight: bold;"
             "}"
         )
@@ -1141,9 +1156,34 @@ class logare(QMainWindow):
         widgetprincipal.setContentsMargins(40, 5, 40, 70)
 
         layout = QVBoxLayout(widgetprincipal)
+        header_layout = QHBoxLayout()
+
+        # 1. Butonul Back (Săgeata)
+        btn_back = QPushButton("←")
+        btn_back.setFixedSize(30, 30)
+        btn_back.setCursor(Qt.CursorShape.PointingHandCursor)
+        btn_back.setStyleSheet(
+            "QPushButton {"
+            "   color: black; "
+            "   font-size: 40px; "
+            "   font-weight: bold; "
+            "   background: transparent; "
+            "   border: none; "
+            "}"
+            "QPushButton:hover {"
+            "   color: white; "
+            "}"
+        )
+        btn_back.clicked.connect(self.go_back)
+        header_layout.addWidget(btn_back)
+
+        header_layout.addStretch()
+
         textlogin = QLabel("Log in")
-        textlogin.setStyleSheet("color: white; font-size: 25px; font-weight: bold; font-family: Comic Sans MS;")
-        layout.addWidget(textlogin)
+        textlogin.setStyleSheet("color: white; font-size: 25px; font-weight: bold; font-family: Segoe UI;")
+        header_layout.addWidget(textlogin)
+
+        layout.addLayout(header_layout)
         layout.addSpacing(140)
         card=QWidget()
         card.setObjectName('card')
@@ -1160,7 +1200,7 @@ class logare(QMainWindow):
             "color: black;"
             " font-size: 25px; "
             "font-weight: bold; "
-            "font-family: Comic Sans MS;"
+            "font-family: Segoe UI;"
 
         )
         emailtext=QLineEdit()
@@ -1173,7 +1213,7 @@ class logare(QMainWindow):
             "border: 1px solid black;"
             "border-radius: 20px;"
             "font-size: 15px;"
-            "font-family: Comic Sans MS;"
+            "font-family: Segoe UI;"
             "font-weight: bold;"
             "}"
             "QLineEdit::focus{"
@@ -1186,7 +1226,7 @@ class logare(QMainWindow):
             "color: black;"
             " font-size: 25px; "
             "font-weight: bold; "
-            "font-family: Comic Sans MS;"
+            "font-family: Segoe UI;"
 
         )
         passwordtext=QLineEdit("" )
@@ -1199,7 +1239,7 @@ class logare(QMainWindow):
             "border: 1px solid black;"
             "border-radius: 20px;"
             "font-size: 15px;"
-            "font-family: Comic Sans MS;"
+            "font-family: Segoe UI;"
             "font-weight: bold;"
             "}"
             "QLineEdit:focus{"
@@ -1214,7 +1254,7 @@ class logare(QMainWindow):
             "QPushButton {"
             "   color: black; "
             "   font-size: 12px; "
-            "   font-family: 'Comic Sans MS'; "
+            "   font-family: 'Segoe UI'; "
             "   background: transparent; "
             "   border: none; "
             "   text-align: left; "
@@ -1235,7 +1275,7 @@ class logare(QMainWindow):
             "border: none;"
             "border-radius: 20px;"
             "font-size: 20px;"
-            "font-family: Comic Sans MS;"
+            "font-family: Segoe UI;"
             "font-weight: bold;"
             "}"
         )
@@ -1265,6 +1305,11 @@ class logare(QMainWindow):
         self.fereastranoua = Uitareparola(fereastra_uitare=self)
         self.fereastranoua.show()
         self.hide()
+
+    def go_back(self):
+        if self.fereastra_anterioara:
+            self.fereastra_anterioara.show()
+            self.close()
 class primaclasa(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -1285,7 +1330,7 @@ class primaclasa(QMainWindow):
         layout = QVBoxLayout(widgetprincipal)
 
         titlu = QLabel("Hello!")
-        titlu.setStyleSheet("color: white; font-size: 65px; font-weight: bold; font-family: Comic Sans MS;")
+        titlu.setStyleSheet("color: white; font-size: 65px; font-weight: bold; font-family: Segoe UI;")
         layout.addWidget(titlu, alignment=Qt.AlignmentFlag.AlignHCenter)
         layout.addSpacing(30)
 
@@ -1298,7 +1343,7 @@ class primaclasa(QMainWindow):
             "border: none;"
             "border-radius: 25px;"
             "font-size: 25px;"
-            "font-family: Comic Sans MS;"
+            "font-family: Segoe UI;"
             "font-weight: bold;"
             "}"
             "QPushButton:hover{"
@@ -1329,7 +1374,7 @@ class primaclasa(QMainWindow):
         layout.addSpacing(30)
 
         urare = QLabel("Be prepared to \n  change your \n       life!")
-        urare.setStyleSheet("color: white; font-size: 35px; font-weight: bold; font-family: Comic Sans MS;")
+        urare.setStyleSheet("color: white; font-size: 35px; font-weight: bold; font-family: Segoe UI;")
         layout.addWidget(urare, alignment=Qt.AlignmentFlag.AlignHCenter)
 
         layout.addStretch()
