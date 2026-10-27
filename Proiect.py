@@ -216,11 +216,13 @@ class sport(QMainWindow):
             "border-image:url(C:/Users/HP/Desktop/PCLPPython/pozabackground.jpeg);"
             "}"
         )
-        widgetprincipal.setContentsMargins(40, 70, 40, 70)
+        widgetprincipal.setContentsMargins(40, 100, 40, 70)
         layout = QVBoxLayout(widgetprincipal)
-        Question = QLabel(" What would \nyou like to do\n    today?")
-        Question.setStyleSheet("color: white; font-size: 30px; font-weight: bold; font-family: Segoe UI;")
-        layout.addWidget(Question, alignment=Qt.AlignmentFlag.AlignHCenter)
+        Question = QLabel("What would you like to do today?")
+        Question.setStyleSheet("color: white; font-size: 32px; font-weight: bold; font-family: Segoe UI;")
+        Question.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        Question.setWordWrap(True)
+        layout.addWidget(Question)
         layout.addSpacing(40)
         UpperBody = QPushButton("UpperBody")
         UpperBody.setFixedHeight(50)
@@ -368,11 +370,13 @@ class paginadestart(QMainWindow):
             "border-image:url(C:/Users/HP/Desktop/PCLPPython/pozabackground.jpeg);"
             "}"
         )
-        widgetprincipal.setContentsMargins(40, 70, 40, 70)
+        widgetprincipal.setContentsMargins(40, 120, 40, 70)
         layout = QVBoxLayout(widgetprincipal)
-        textwelcome = QLabel("Welcome to\nyour fitness\n  journal!")
-        textwelcome.setStyleSheet("color: white; font-size: 40px; font-weight: bold; font-family: Segoe UI;")
-        layout.addWidget(textwelcome,alignment=Qt.AlignmentFlag.AlignHCenter)
+        textwelcome = QLabel("Welcome to your fitness journal!")
+        textwelcome.setStyleSheet("color: white; font-size: 35px; font-weight: bold; font-family: Segoe UI;")
+        textwelcome.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        textwelcome.setWordWrap(True)
+        layout.addWidget(textwelcome)
         layout.addSpacing(40)
         textinterest = QLabel("Choose your interest")
         textinterest.setStyleSheet("color: white; font-size: 25px; font-weight: bold; font-family: Segoe UI;")
@@ -446,9 +450,33 @@ class inregistrare2(QMainWindow):
         )
         widgetprincipal.setContentsMargins(40, 5, 40, 70)
         layout = QVBoxLayout(widgetprincipal)
+        header_layout = QHBoxLayout()
+
+        btn_back = QPushButton("←")
+        btn_back.setFixedSize(40, 40)
+        btn_back.setCursor(Qt.CursorShape.PointingHandCursor)
+        btn_back.setStyleSheet(
+            "QPushButton {"
+            "   color: black; "
+            "   font-size: 26px; "
+            "   font-weight: bold; "
+            "   background: transparent; "
+            "   border: none; "
+            "}"
+            "QPushButton:hover {"
+            "   color: white; "
+            "}"
+        )
+        btn_back.clicked.connect(self.go_back)
+        header_layout.addWidget(btn_back)
+
+        header_layout.addStretch()
         textsignin = QLabel("Sign in")
         textsignin.setStyleSheet("color: white; font-size: 25px; font-weight: bold; font-family: Segoe UI;")
-        layout.addWidget(textsignin)
+        header_layout.addWidget(textsignin)
+
+        layout.addLayout(header_layout)
+
         layout.addSpacing(60)
         textpagina = QLabel("2/2")
         textpagina.setStyleSheet("color: white; font-size: 15px; font-weight: bold; font-family: Segoe UI;")
@@ -602,14 +630,7 @@ class inregistrare2(QMainWindow):
             "    outline: none;"
             "}"
         )
-        question = QLabel("Are you an athlete?")
-        question.setStyleSheet(
-            "color: black;"
-            " font-size: 25px; "
-            "font-weight: bold; "
-            "font-family: Segoe UI;"
 
-        )
         Createaccount = QPushButton("Create account")
         Createaccount.setFixedHeight(30)
         Createaccount.setFixedWidth(160)
@@ -653,6 +674,10 @@ class inregistrare2(QMainWindow):
         self.fereastranoua = paginadestart(fereastra_alege=self)
         self.fereastranoua.show()
         self.hide()
+    def go_back(self):
+        if self.fereastra_sign2:
+            self.fereastra_sign2.show()
+            self.close()
 
 class inregistrare(QMainWindow):
     def __init__(self, fereastra_sign=None):
@@ -671,9 +696,33 @@ class inregistrare(QMainWindow):
         )
         widgetprincipal.setContentsMargins(40, 4, 40, 70)
         layout = QVBoxLayout(widgetprincipal)
+        header_layout = QHBoxLayout()
+
+        btn_back = QPushButton("←")
+        btn_back.setFixedSize(40, 40)
+        btn_back.setCursor(Qt.CursorShape.PointingHandCursor)
+        btn_back.setStyleSheet(
+            "QPushButton {"
+            "   color: black; "
+            "   font-size: 26px; "
+            "   font-weight: bold; "
+            "   background: transparent; "
+            "   border: none; "
+            "}"
+            "QPushButton:hover {"
+            "   color: white; "
+            "}"
+        )
+        btn_back.clicked.connect(self.go_back)
+        header_layout.addWidget(btn_back)
+
+        header_layout.addStretch()
+
         textsignin=QLabel("Sign in")
         textsignin.setStyleSheet("color: white; font-size: 25px; font-weight: bold; font-family: Segoe UI;")
-        layout.addWidget(textsignin)
+        header_layout.addWidget(textsignin)
+
+        layout.addLayout(header_layout)
         layout.addSpacing(80)
         textpagina=QLabel("1/2")
         textpagina.setStyleSheet("color: white; font-size: 15px; font-weight: bold; font-family: Segoe UI;")
@@ -836,6 +885,10 @@ class inregistrare(QMainWindow):
         self.fereastranoua = inregistrare2(fereastra_sign2=self)
         self.fereastranoua.show()
         self.hide()
+    def go_back(self):
+        if self.fereastra_sign:
+            self.fereastra_sign.show()
+            self.close()
 class Parolanoua(QMainWindow):
     def __init__(self, fereastra_parola=None):
         super().__init__()
@@ -851,9 +904,36 @@ class Parolanoua(QMainWindow):
             "border-image:url(C:/Users/HP/Desktop/PCLPPython/pozabackground.jpeg);"
             "}"
         )
-        widgetprincipal.setContentsMargins(40, 180, 40, 70)
+        widgetprincipal.setContentsMargins(40, 5, 40, 70)
 
         layout = QVBoxLayout(widgetprincipal)
+        header_layout = QHBoxLayout()
+
+        btn_back = QPushButton("←")
+        btn_back.setFixedSize(40, 40)
+        btn_back.setCursor(Qt.CursorShape.PointingHandCursor)
+        btn_back.setStyleSheet(
+            "QPushButton {"
+            "   color: black; "
+            "   font-size: 26px; "
+            "   font-weight: bold; "
+            "   background: transparent; "
+            "   border: none; "
+            "}"
+            "QPushButton:hover {"
+            "   color: white; "
+            "}"
+        )
+        btn_back.clicked.connect(self.go_back)
+        header_layout.addWidget(btn_back)
+        header_layout.addStretch()
+
+        textlogin = QLabel("Code")
+        textlogin.setStyleSheet("color: white; font-size: 25px; font-weight: bold; font-family: Segoe UI;")
+        header_layout.addWidget(textlogin)
+
+        layout.addLayout(header_layout)
+        layout.addSpacing(150)
         card = QWidget()
         card.setObjectName('card')
         card.setStyleSheet(
@@ -950,6 +1030,11 @@ class Parolanoua(QMainWindow):
         self.fereastranoua = logare(fereastra_anterioara=self)
         self.fereastranoua.show()
         self.hide()
+
+    def go_back(self):
+        if self.fereastra_parola:
+            self.fereastra_parola.show()
+            self.close()
 class Code(QMainWindow):
     def __init__(self, fereastra_send=None):
         super().__init__()
@@ -965,9 +1050,37 @@ class Code(QMainWindow):
             "border-image:url(C:/Users/HP/Desktop/PCLPPython/pozabackground.jpeg);"
             "}"
         )
-        widgetprincipal.setContentsMargins(40, 180, 40, 70)
+        widgetprincipal.setContentsMargins(40, 5, 40, 70)
 
         layout = QVBoxLayout(widgetprincipal)
+
+        header_layout = QHBoxLayout()
+
+        btn_back = QPushButton("←")
+        btn_back.setFixedSize(40, 40)
+        btn_back.setCursor(Qt.CursorShape.PointingHandCursor)
+        btn_back.setStyleSheet(
+            "QPushButton {"
+            "   color: black; "
+            "   font-size: 26px; "
+            "   font-weight: bold; "
+            "   background: transparent; "
+            "   border: none; "
+            "}"
+            "QPushButton:hover {"
+            "   color: white; "
+            "}"
+        )
+        btn_back.clicked.connect(self.go_back)
+        header_layout.addWidget(btn_back)
+        header_layout.addStretch()
+
+        textlogin = QLabel("Code")
+        textlogin.setStyleSheet("color: white; font-size: 25px; font-weight: bold; font-family: Segoe UI;")
+        header_layout.addWidget(textlogin)
+
+        layout.addLayout(header_layout)
+        layout.addSpacing(120)
         card = QWidget()
         card.setObjectName('card')
         card.setStyleSheet(
@@ -1049,6 +1162,10 @@ class Code(QMainWindow):
         self.fereastranoua = Parolanoua(fereastra_parola=self)
         self.fereastranoua.show()
         self.hide()
+    def go_back(self):
+        if self.fereastra_send:
+            self.fereastra_send.show()
+            self.close()
 class Uitareparola(QMainWindow):
     def __init__(self, fereastra_uitare=None):
         super().__init__()
@@ -1067,9 +1184,32 @@ class Uitareparola(QMainWindow):
         widgetprincipal.setContentsMargins(40, 5, 40, 70)
 
         layout = QVBoxLayout(widgetprincipal)
-        textlogin = QLabel("Log in")
+        header_layout = QHBoxLayout()
+
+        btn_back = QPushButton("←")
+        btn_back.setFixedSize(40, 40)
+        btn_back.setCursor(Qt.CursorShape.PointingHandCursor)
+        btn_back.setStyleSheet(
+            "QPushButton {"
+            "   color: black; "
+            "   font-size: 26px; "
+            "   font-weight: bold; "
+            "   background: transparent; "
+            "   border: none; "
+            "}"
+            "QPushButton:hover {"
+            "   color: white; "
+            "}"
+        )
+        btn_back.clicked.connect(self.go_back)
+        header_layout.addWidget(btn_back)
+        header_layout.addStretch()
+
+        textlogin = QLabel("Code")
         textlogin.setStyleSheet("color: white; font-size: 25px; font-weight: bold; font-family: Segoe UI;")
-        layout.addWidget(textlogin)
+        header_layout.addWidget(textlogin)
+
+        layout.addLayout(header_layout)
         layout.addSpacing(140)
         card = QWidget()
         card.setObjectName('card')
@@ -1137,6 +1277,10 @@ class Uitareparola(QMainWindow):
         self.fereastranoua=Code(fereastra_send=self)
         self.fereastranoua.show()
         self.hide()
+    def go_back(self):
+        if self.fereastra_uitare:
+            self.fereastra_uitare.show()
+            self.close()
 
 class logare(QMainWindow):
     def __init__(self, fereastra_anterioara=None):
@@ -1158,14 +1302,13 @@ class logare(QMainWindow):
         layout = QVBoxLayout(widgetprincipal)
         header_layout = QHBoxLayout()
 
-        # 1. Butonul Back (Săgeata)
         btn_back = QPushButton("←")
-        btn_back.setFixedSize(30, 30)
+        btn_back.setFixedSize(40, 40)
         btn_back.setCursor(Qt.CursorShape.PointingHandCursor)
         btn_back.setStyleSheet(
             "QPushButton {"
             "   color: black; "
-            "   font-size: 40px; "
+            "   font-size: 26px; "
             "   font-weight: bold; "
             "   background: transparent; "
             "   border: none; "
@@ -1373,9 +1516,13 @@ class primaclasa(QMainWindow):
 
         layout.addSpacing(30)
 
-        urare = QLabel("Be prepared to \n  change your \n       life!")
-        urare.setStyleSheet("color: white; font-size: 35px; font-weight: bold; font-family: Segoe UI;")
-        layout.addWidget(urare, alignment=Qt.AlignmentFlag.AlignHCenter)
+        urare = QLabel("Be prepared to change your life!")
+        urare.setStyleSheet("color: white; font-size: 40px; font-weight: bold; font-family: Segoe UI;")
+
+        urare.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        urare.setWordWrap(True)
+
+        layout.addWidget(urare)
 
         layout.addStretch()
         login.clicked.connect(self.intrarelogare)
