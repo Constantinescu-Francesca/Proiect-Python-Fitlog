@@ -1,8 +1,8 @@
 import sys
-from PyQt6.QtCore import Qt
-from PyQt6.QtGui import QColor
+from PyQt6.QtCore import Qt, QEvent, QTimer
+from PyQt6.QtGui import QColor, QFont, QIcon, QPainter, QPixmap, QAction
 from PyQt6.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout, QPushButton, QMainWindow, \
-    QGraphicsDropShadowEffect, QLineEdit, QComboBox, QHBoxLayout
+    QGraphicsDropShadowEffect, QLineEdit, QComboBox, QHBoxLayout, QScrollArea
 class Upperbody(QMainWindow):
     def __init__(self, fereastra_upper=None):
         super().__init__()
@@ -18,8 +18,32 @@ class Upperbody(QMainWindow):
             "border-image:url(C:/Users/HP/Desktop/PCLPPython/pozabackground.jpeg);"
             "}"
         )
-        widgetprincipal.setContentsMargins(40, 130, 40, 70)
+        widgetprincipal.setContentsMargins(40, 5, 40, 70)
         layout = QVBoxLayout(widgetprincipal)
+        header_layout = QHBoxLayout()
+
+        btn_back = QPushButton("←")
+        btn_back.setFixedSize(40, 40)
+        btn_back.setCursor(Qt.CursorShape.PointingHandCursor)
+        btn_back.setStyleSheet(
+            "QPushButton {"
+            "   color: black; "
+            "   font-size: 26px; "
+            "   font-weight: bold; "
+            "   background: transparent; "
+            "   border: none; "
+            "}"
+            "QPushButton:hover {"
+            "   color: white; "
+            "}"
+        )
+        btn_back.clicked.connect(self.go_back)
+        header_layout.addWidget(btn_back)
+
+        header_layout.addStretch()
+
+        layout.addLayout(header_layout)
+        layout.addSpacing(50)
         Titlul = QLabel("Upper Body")
         Titlul.setStyleSheet("color: white; font-size: 40px; font-weight: bold; font-family: Segoe UI;")
         layout.addWidget(Titlul, alignment=Qt.AlignmentFlag.AlignHCenter)
@@ -126,6 +150,10 @@ class Upperbody(QMainWindow):
         layout.addSpacing(20)
         layout.addStretch()
         self.setCentralWidget(widgetprincipal)
+    def go_back(self):
+        if self.fereastra_upper:
+            self.fereastra_upper.show()
+            self.close()
 class Lowerbody(QMainWindow):
     def __init__(self, fereastra_lower=None):
         super().__init__()
@@ -141,8 +169,32 @@ class Lowerbody(QMainWindow):
             "border-image:url(C:/Users/HP/Desktop/PCLPPython/pozabackground.jpeg);"
             "}"
         )
-        widgetprincipal.setContentsMargins(40, 160, 40, 70)
+        widgetprincipal.setContentsMargins(40, 5, 40, 70)
         layout = QVBoxLayout(widgetprincipal)
+        header_layout = QHBoxLayout()
+
+        btn_back = QPushButton("←")
+        btn_back.setFixedSize(40, 40)
+        btn_back.setCursor(Qt.CursorShape.PointingHandCursor)
+        btn_back.setStyleSheet(
+            "QPushButton {"
+            "   color: black; "
+            "   font-size: 26px; "
+            "   font-weight: bold; "
+            "   background: transparent; "
+            "   border: none; "
+            "}"
+            "QPushButton:hover {"
+            "   color: white; "
+            "}"
+        )
+        btn_back.clicked.connect(self.go_back)
+        header_layout.addWidget(btn_back)
+
+        header_layout.addStretch()
+
+        layout.addLayout(header_layout)
+        layout.addSpacing(50)
         Titlul = QLabel("Lower Body")
         Titlul.setStyleSheet("color: white; font-size: 40px; font-weight: bold; font-family: Segoe UI;")
         layout.addWidget(Titlul, alignment=Qt.AlignmentFlag.AlignHCenter)
@@ -201,6 +253,10 @@ class Lowerbody(QMainWindow):
 
         layout.addStretch()
         self.setCentralWidget(widgetprincipal)
+    def go_back(self):
+        if self.fereastra_lower:
+            self.fereastra_lower.show()
+            self.close()
 class sport(QMainWindow):
     def __init__(self, fereastra_sport=None):
         super().__init__()
@@ -216,8 +272,32 @@ class sport(QMainWindow):
             "border-image:url(C:/Users/HP/Desktop/PCLPPython/pozabackground.jpeg);"
             "}"
         )
-        widgetprincipal.setContentsMargins(40, 100, 40, 70)
+        widgetprincipal.setContentsMargins(40, 5, 40, 70)
         layout = QVBoxLayout(widgetprincipal)
+        header_layout = QHBoxLayout()
+
+        btn_back = QPushButton("←")
+        btn_back.setFixedSize(40, 40)
+        btn_back.setCursor(Qt.CursorShape.PointingHandCursor)
+        btn_back.setStyleSheet(
+            "QPushButton {"
+            "   color: black; "
+            "   font-size: 26px; "
+            "   font-weight: bold; "
+            "   background: transparent; "
+            "   border: none; "
+            "}"
+            "QPushButton:hover {"
+            "   color: white; "
+            "}"
+        )
+        btn_back.clicked.connect(self.go_back)
+        header_layout.addWidget(btn_back)
+
+        header_layout.addStretch()
+
+        layout.addLayout(header_layout)
+        layout.addSpacing(50)
         Question = QLabel("What would you like to do today?")
         Question.setStyleSheet("color: white; font-size: 32px; font-weight: bold; font-family: Segoe UI;")
         Question.setAlignment(Qt.AlignmentFlag.AlignCenter)
@@ -337,6 +417,10 @@ class sport(QMainWindow):
         self.fereastranoua=Lowerbody(fereastra_lower=self)
         self.fereastranoua.show()
         self.hide()
+    def go_back(self):
+        if self.fereastra_sport:
+            self.fereastra_sport.show()
+            self.close()
 class food(QMainWindow):
     def __init__(self, fereastra_food=None):
         super().__init__()
@@ -352,9 +436,38 @@ class food(QMainWindow):
             "border-image:url(C:/Users/HP/Desktop/PCLPPython/pozabackground.jpeg);"
             "}"
         )
-        widgetprincipal.setContentsMargins(40, 70, 40, 70)
+        widgetprincipal.setContentsMargins(40, 5, 40, 70)
         layout = QVBoxLayout(widgetprincipal)
+        header_layout = QHBoxLayout()
+
+        btn_back = QPushButton("←")
+        btn_back.setFixedSize(40, 40)
+        btn_back.setCursor(Qt.CursorShape.PointingHandCursor)
+        btn_back.setStyleSheet(
+            "QPushButton {"
+            "   color: black; "
+            "   font-size: 26px; "
+            "   font-weight: bold; "
+            "   background: transparent; "
+            "   border: none; "
+            "}"
+            "QPushButton:hover {"
+            "   color: white; "
+            "}"
+        )
+        btn_back.clicked.connect(self.go_back)
+        header_layout.addWidget(btn_back)
+
+        header_layout.addStretch()
+
+        layout.addLayout(header_layout)
+        layout.addSpacing(50)
+        layout.addStretch()
         self.setCentralWidget(widgetprincipal)
+    def go_back(self):
+        if self.fereastra_food:
+            self.fereastra_food.show()
+            self.close()
 class paginadestart(QMainWindow):
     def __init__(self, fereastra_alege=None):
         super().__init__()
@@ -667,6 +780,33 @@ class inregistrare2(QMainWindow):
         layoutcard.addSpacing(15)
         layoutcard.addWidget(Createaccount, alignment=Qt.AlignmentFlag.AlignHCenter)
         layoutcard.addSpacing(10)
+        scroll = QScrollArea()
+        scroll.setWidgetResizable(True)
+        scroll.setWidget(card)
+        scroll.setStyleSheet("""
+                            QScrollArea {
+                                border: none;
+                                background: transparent;
+                            }
+                            QScrollBar:vertical {
+                                border: none;
+                                background: rgba(0, 0, 0, 0.05); 
+                                width: 4px;                      
+                                margin: 0px;
+                                border-radius: 2px;
+                            }
+
+                            QScrollBar::handle:vertical {
+                                background: rgba(0, 0, 0, 0.35); 
+                                min-height: 30px;
+                                border-radius: 2px;
+                            }
+
+                            QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+                                height: 0px;
+                            }
+                        """)
+        layout.addWidget(scroll)
         layout.addStretch()
         Createaccount.clicked.connect(self.paginadestart)
         self.setCentralWidget(widgetprincipal)
@@ -877,6 +1017,33 @@ class inregistrare(QMainWindow):
         layoutcard.addSpacing(15)
         layoutcard.addWidget(Next, alignment=Qt.AlignmentFlag.AlignHCenter)
         layoutcard.addSpacing(10)
+        scroll = QScrollArea()
+        scroll.setWidgetResizable(True)
+        scroll.setWidget(card)
+        scroll.setStyleSheet("""
+                    QScrollArea {
+                        border: none;
+                        background: transparent;
+                    }
+                    QScrollBar:vertical {
+                        border: none;
+                        background: rgba(0, 0, 0, 0.05); 
+                        width: 4px;                      
+                        margin: 0px;
+                        border-radius: 2px;
+                    }
+                   
+                    QScrollBar::handle:vertical {
+                        background: rgba(0, 0, 0, 0.35); 
+                        min-height: 30px;
+                        border-radius: 2px;
+                    }
+                   
+                    QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+                        height: 0px;
+                    }
+                """)
+        layout.addWidget(scroll)
         layout.addStretch()
         Next.clicked.connect(self.intrareinregistrare2)
         self.setCentralWidget(widgetprincipal)
@@ -1043,6 +1210,10 @@ class Code(QMainWindow):
         self.resize(380, 720)
         self.setFixedHeight(720)
         self.setFixedWidth(380)
+        self.timp_ramas = 120
+        self.timer = QTimer(self)
+        self.timer.setInterval(1000)
+        self.timer.timeout.connect(self.actualizeaza_cronometru)
         widgetprincipal = QWidget()
         widgetprincipal.setObjectName('widgetprincipal')
         widgetprincipal.setStyleSheet(
@@ -1113,6 +1284,7 @@ class Code(QMainWindow):
             box.setMaxLength(1)
             box.setAlignment(Qt.AlignmentFlag.AlignCenter)
             box.setStyleSheet(stil_liniuta)
+            box.installEventFilter(self)
             layout_code_boxes.addWidget(box)
             self.inputs.append(box)
 
@@ -1123,6 +1295,15 @@ class Code(QMainWindow):
 
         layoutcard.addLayout(layout_code_boxes)
         layoutcard.addSpacing(15)
+        self.label_timer = QLabel("02:00")
+        self.label_timer.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.label_timer.setStyleSheet(
+            "color: #D32F2F;"
+            "font-size: 20px;"
+            "font-weight: bold;"
+            "font-family: Segoe UI;"
+        )
+        layoutcard.addWidget(self.label_timer)
         intrebare = QPushButton("Resend code")
         intrebare.setCursor(Qt.CursorShape.PointingHandCursor)
         intrebare.setStyleSheet(
@@ -1158,6 +1339,39 @@ class Code(QMainWindow):
         layout.addStretch()
         Verify.clicked.connect(self.facemparolanoua)
         self.setCentralWidget(widgetprincipal)
+        self.timer.start()
+
+    def actualizeaza_cronometru(self):
+            if self.timp_ramas > 0:
+                self.timp_ramas -= 1
+                minute = self.timp_ramas // 60
+                secunde = self.timp_ramas % 60
+                self.label_timer.setText(f"{minute:02d}:{secunde:02d}")
+            else:
+                self.timer.stop()
+                self.label_timer.setText("Code expired!")
+                self.Verify.setEnabled(False)
+
+    def resend_code(self):
+
+            self.timp_ramas = 120
+            self.label_timer.setText("02:00")
+            self.Verify.setEnabled(True)
+            self.timer.start()
+
+            for input_box in self.inputs:
+                input_box.clear()
+            self.inputs[0].setFocus()
+
+    def eventFilter(self,source,event):
+        if event.type() == QEvent.Type.KeyPress and event.key() == Qt.Key.Key_Backspace:
+            if source in self.inputs:
+                idx = self.inputs.index(source)
+                if source.text() == "" and idx > 0:
+                    self.inputs[idx - 1].setFocus()
+                    self.inputs[idx - 1].clear()
+                    return True
+        return super().eventFilter(source, event)
     def facemparolanoua(self):
         self.fereastranoua = Parolanoua(fereastra_parola=self)
         self.fereastranoua.show()
@@ -1391,6 +1605,29 @@ class logare(QMainWindow):
         )
         passwordtext.setEchoMode(QLineEdit.EchoMode.Password)
 
+        def creeaza_icon_emoji(text):
+            pixmap = QPixmap(24, 24)
+            pixmap.fill(Qt.GlobalColor.transparent)
+            painter = QPainter(pixmap)
+            painter.setFont(QFont("Segoe UI Emoji", 12))
+            painter.drawText(pixmap.rect(), Qt.AlignmentFlag.AlignCenter, text)
+            painter.end()
+            return QIcon(pixmap)
+
+        icon_ochi = creeaza_icon_emoji("👁")
+
+        eye_logare = QAction(icon_ochi, "", passwordtext)
+        eye_logare.setCheckable(True)
+        eye_logare.setCursor(Qt.CursorShape.PointingHandCursor)
+
+        def arata_parola_logare(este_bifat):
+            if este_bifat:
+                passwordtext.setEchoMode(QLineEdit.EchoMode.Normal)
+            else:
+                passwordtext.setEchoMode(QLineEdit.EchoMode.Password)
+
+        eye_logare.toggled.connect(arata_parola_logare)
+        passwordtext.addAction(eye_logare, QLineEdit.ActionPosition.TrailingPosition)
         intrebare = QPushButton("Forgot your password?")
         intrebare.setCursor(Qt.CursorShape.PointingHandCursor)
         intrebare.setStyleSheet(
@@ -1473,7 +1710,7 @@ class primaclasa(QMainWindow):
         layout = QVBoxLayout(widgetprincipal)
 
         titlu = QLabel("Hello!")
-        titlu.setStyleSheet("color: white; font-size: 65px; font-weight: bold; font-family: Segoe UI;")
+        titlu.setStyleSheet("color: white; font-size: 50px; font-weight: bold; font-family: Segoe UI;")
         layout.addWidget(titlu, alignment=Qt.AlignmentFlag.AlignHCenter)
         layout.addSpacing(30)
 
@@ -1517,7 +1754,7 @@ class primaclasa(QMainWindow):
         layout.addSpacing(30)
 
         urare = QLabel("Be prepared to change your life!")
-        urare.setStyleSheet("color: white; font-size: 40px; font-weight: bold; font-family: Segoe UI;")
+        urare.setStyleSheet("color: white; font-size: 35px; font-weight: bold; font-family: Segoe UI;")
 
         urare.setAlignment(Qt.AlignmentFlag.AlignCenter)
         urare.setWordWrap(True)
