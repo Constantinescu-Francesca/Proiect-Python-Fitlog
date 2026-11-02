@@ -1,8 +1,12 @@
 import sys
 from PyQt6.QtCore import Qt, QEvent, QTimer
 from PyQt6.QtGui import QColor, QFont, QIcon, QPainter, QPixmap, QAction
-from PyQt6.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout, QPushButton, QMainWindow, \
+from PyQt6.QtWidgets import (
+    QApplication, QWidget, QLabel, QVBoxLayout, QPushButton, QMainWindow,
     QGraphicsDropShadowEffect, QLineEdit, QComboBox, QHBoxLayout, QScrollArea
+)
+
+
 class Upperbody(QMainWindow):
     def __init__(self, fereastra_upper=None):
         super().__init__()
@@ -11,6 +15,7 @@ class Upperbody(QMainWindow):
         self.resize(380, 720)
         self.setFixedHeight(720)
         self.setFixedWidth(380)
+
         widgetprincipal = QWidget()
         widgetprincipal.setObjectName('widgetprincipal')
         widgetprincipal.setStyleSheet(
@@ -27,14 +32,14 @@ class Upperbody(QMainWindow):
         btn_back.setCursor(Qt.CursorShape.PointingHandCursor)
         btn_back.setStyleSheet(
             "QPushButton {"
-            "   color: black; "
-            "   font-size: 26px; "
-            "   font-weight: bold; "
-            "   background: transparent; "
-            "   border: none; "
+            "    color: black; "
+            "    font-size: 26px; "
+            "    font-weight: bold; "
+            "    background: transparent; "
+            "    border: none; "
             "}"
             "QPushButton:hover {"
-            "   color: white; "
+            "    color: white; "
             "}"
         )
         btn_back.clicked.connect(self.go_back)
@@ -48,6 +53,7 @@ class Upperbody(QMainWindow):
         Titlul.setStyleSheet("color: white; font-size: 40px; font-weight: bold; font-family: Segoe UI;")
         layout.addWidget(Titlul, alignment=Qt.AlignmentFlag.AlignHCenter)
         layout.addSpacing(40)
+
         Chest = QPushButton("Chest")
         Chest.setFixedHeight(50)
         Chest.setFixedWidth(200)
@@ -124,7 +130,7 @@ class Upperbody(QMainWindow):
         layout.addWidget(Shoulders, alignment=Qt.AlignmentFlag.AlignHCenter)
 
         layout.addSpacing(20)
-        Back= QPushButton("Back")
+        Back = QPushButton("Back")
         Back.setFixedHeight(50)
         Back.setFixedWidth(200)
         Back.setStyleSheet(
@@ -150,10 +156,13 @@ class Upperbody(QMainWindow):
         layout.addSpacing(20)
         layout.addStretch()
         self.setCentralWidget(widgetprincipal)
+
     def go_back(self):
         if self.fereastra_upper:
             self.fereastra_upper.show()
             self.close()
+
+
 class Lowerbody(QMainWindow):
     def __init__(self, fereastra_lower=None):
         super().__init__()
@@ -178,14 +187,14 @@ class Lowerbody(QMainWindow):
         btn_back.setCursor(Qt.CursorShape.PointingHandCursor)
         btn_back.setStyleSheet(
             "QPushButton {"
-            "   color: black; "
-            "   font-size: 26px; "
-            "   font-weight: bold; "
-            "   background: transparent; "
-            "   border: none; "
+            "    color: black; "
+            "    font-size: 26px; "
+            "    font-weight: bold; "
+            "    background: transparent; "
+            "    border: none; "
             "}"
             "QPushButton:hover {"
-            "   color: white; "
+            "    color: white; "
             "}"
         )
         btn_back.clicked.connect(self.go_back)
@@ -253,10 +262,13 @@ class Lowerbody(QMainWindow):
 
         layout.addStretch()
         self.setCentralWidget(widgetprincipal)
+
     def go_back(self):
         if self.fereastra_lower:
             self.fereastra_lower.show()
             self.close()
+
+
 class sport(QMainWindow):
     def __init__(self, fereastra_sport=None):
         super().__init__()
@@ -281,14 +293,14 @@ class sport(QMainWindow):
         btn_back.setCursor(Qt.CursorShape.PointingHandCursor)
         btn_back.setStyleSheet(
             "QPushButton {"
-            "   color: black; "
-            "   font-size: 26px; "
-            "   font-weight: bold; "
-            "   background: transparent; "
-            "   border: none; "
+            "    color: black; "
+            "    font-size: 26px; "
+            "    font-weight: bold; "
+            "    background: transparent; "
+            "    border: none; "
             "}"
             "QPushButton:hover {"
-            "   color: white; "
+            "    color: white; "
             "}"
         )
         btn_back.clicked.connect(self.go_back)
@@ -409,18 +421,23 @@ class sport(QMainWindow):
         UpperBody.clicked.connect(self.paginaupper)
         LowerBody.clicked.connect(self.paginalower)
         self.setCentralWidget(widgetprincipal)
+
     def paginaupper(self):
-        self.fereastranoua=Upperbody(fereastra_upper=self)
+        self.fereastranoua = Upperbody(fereastra_upper=self)
         self.fereastranoua.show()
         self.hide()
+
     def paginalower(self):
-        self.fereastranoua=Lowerbody(fereastra_lower=self)
+        self.fereastranoua = Lowerbody(fereastra_lower=self)
         self.fereastranoua.show()
         self.hide()
+
     def go_back(self):
         if self.fereastra_sport:
             self.fereastra_sport.show()
             self.close()
+
+
 class food(QMainWindow):
     def __init__(self, fereastra_food=None):
         super().__init__()
@@ -445,14 +462,14 @@ class food(QMainWindow):
         btn_back.setCursor(Qt.CursorShape.PointingHandCursor)
         btn_back.setStyleSheet(
             "QPushButton {"
-            "   color: black; "
-            "   font-size: 26px; "
-            "   font-weight: bold; "
-            "   background: transparent; "
-            "   border: none; "
+            "    color: black; "
+            "    font-size: 26px; "
+            "    font-weight: bold; "
+            "    background: transparent; "
+            "    border: none; "
             "}"
             "QPushButton:hover {"
-            "   color: white; "
+            "    color: white; "
             "}"
         )
         btn_back.clicked.connect(self.go_back)
@@ -464,10 +481,13 @@ class food(QMainWindow):
         layout.addSpacing(50)
         layout.addStretch()
         self.setCentralWidget(widgetprincipal)
+
     def go_back(self):
         if self.fereastra_food:
             self.fereastra_food.show()
             self.close()
+
+
 class paginadestart(QMainWindow):
     def __init__(self, fereastra_alege=None):
         super().__init__()
@@ -493,7 +513,7 @@ class paginadestart(QMainWindow):
         layout.addSpacing(40)
         textinterest = QLabel("Choose your interest")
         textinterest.setStyleSheet("color: white; font-size: 25px; font-weight: bold; font-family: Segoe UI;")
-        layout.addWidget(textinterest,alignment=Qt.AlignmentFlag.AlignHCenter)
+        layout.addWidget(textinterest, alignment=Qt.AlignmentFlag.AlignHCenter)
         layout.addSpacing(35)
         Sport = QPushButton("Sport")
         Sport.setFixedHeight(50)
@@ -536,10 +556,12 @@ class paginadestart(QMainWindow):
         Sport.clicked.connect(self.meniusport)
         Food.clicked.connect(self.meniumancare)
         self.setCentralWidget(widgetprincipal)
+
     def meniusport(self):
-        self.fereastranoua=sport(fereastra_sport=self)
+        self.fereastranoua = sport(fereastra_sport=self)
         self.fereastranoua.show()
         self.hide()
+
     def meniumancare(self):
         self.fereastranoua = food(fereastra_food=self)
         self.fereastranoua.show()
@@ -570,14 +592,14 @@ class inregistrare2(QMainWindow):
         btn_back.setCursor(Qt.CursorShape.PointingHandCursor)
         btn_back.setStyleSheet(
             "QPushButton {"
-            "   color: black; "
-            "   font-size: 26px; "
-            "   font-weight: bold; "
-            "   background: transparent; "
-            "   border: none; "
+            "    color: black; "
+            "    font-size: 26px; "
+            "    font-weight: bold; "
+            "    background: transparent; "
+            "    border: none; "
             "}"
             "QPushButton:hover {"
-            "   color: white; "
+            "    color: white; "
             "}"
         )
         btn_back.clicked.connect(self.go_back)
@@ -610,7 +632,6 @@ class inregistrare2(QMainWindow):
             " font-size: 25px; "
             "font-weight: bold; "
             "font-family: Segoe UI;"
-
         )
         Heighttext = QLineEdit()
         Heighttext.setPlaceholderText("Write...")
@@ -636,7 +657,6 @@ class inregistrare2(QMainWindow):
             " font-size: 25px; "
             "font-weight: bold; "
             "font-family: Segoe UI;"
-
         )
         Weighttext = QLineEdit("")
         Weighttext.setFixedHeight(40)
@@ -661,59 +681,14 @@ class inregistrare2(QMainWindow):
             " font-size: 25px; "
             "font-weight: bold; "
             "font-family: Segoe UI;"
-
         )
-        sagetica1=QComboBox()
+        sagetica1 = QComboBox()
         sagetica1.addItem("Get toned")
         sagetica1.addItem("Gain muscle and weight")
         sagetica1.addItem("Gain muscle and lose weight")
         sagetica1.setPlaceholderText("Choose")
         sagetica1.setFixedHeight(40)
         sagetica1.setStyleSheet(
-            "QComboBox {"
-    "    background-color: white;"
-    "    color: black;"
-    "    border: 1px solid black;"
-    "    border-radius: 20px;"
-    "    padding: 10px 15px;"
-    "    font-size: 15px;"
-    "    font-weight: bold;"
-            "font-family:Segoe UI;"
-    "}"
-    "QComboBox:hover {"
-    "    border: 1px solid pink;"
-    "}"
-    "QComboBox::drop-down {"
-    "    subcontrol-origin: padding;"
-    "    subcontrol-position: top right;"
-    "    width: 35px;"
-    "    border-left: 1px solid white;"
-    "}"
-    "QComboBox QAbstractItemView {"
-    "    background-color: pink;"
-    "    color: black;"
-        "font-family: Segoe UI;"
-    "    border: 1px solid white;"
-    "    selection-background-color: pink;"
-    "    selection-color: white;"
-    "    outline: none;"
-    "}"
-        )
-        question=QLabel("Are you an athlete?")
-        question.setStyleSheet(
-            "color: black;"
-            " font-size: 25px; "
-            "font-weight: bold; "
-            "font-family: Segoe UI;"
-
-        )
-
-        sagetica2=QComboBox()
-        sagetica2.addItem("Yes")
-        sagetica2.addItem("No")
-        sagetica2.setPlaceholderText("Choose")
-        sagetica2.setFixedHeight(40)
-        sagetica2.setStyleSheet(
             "QComboBox {"
             "    background-color: white;"
             "    color: black;"
@@ -722,7 +697,7 @@ class inregistrare2(QMainWindow):
             "    padding: 10px 15px;"
             "    font-size: 15px;"
             "    font-weight: bold;"
-            "font-family:Segoe UI;"
+            "    font-family:Segoe UI;"
             "}"
             "QComboBox:hover {"
             "    border: 1px solid pink;"
@@ -736,7 +711,50 @@ class inregistrare2(QMainWindow):
             "QComboBox QAbstractItemView {"
             "    background-color: pink;"
             "    color: black;"
+            "    font-family: Segoe UI;"
+            "    border: 1px solid white;"
+            "    selection-background-color: pink;"
+            "    selection-color: white;"
+            "    outline: none;"
+            "}"
+        )
+        question = QLabel("Are you an athlete?")
+        question.setStyleSheet(
+            "color: black;"
+            " font-size: 25px; "
+            "font-weight: bold; "
             "font-family: Segoe UI;"
+        )
+
+        sagetica2 = QComboBox()
+        sagetica2.addItem("Yes")
+        sagetica2.addItem("No")
+        sagetica2.setPlaceholderText("Choose")
+        sagetica2.setFixedHeight(40)
+        sagetica2.setStyleSheet(
+            "QComboBox {"
+            "    background-color: white;"
+            "    color: black;"
+            "    border: 1px solid black;"
+            "    border-radius: 20px;"
+            "    padding: 10px 15px;"
+            "    font-size: 15px;"
+            "    font-weight: bold;"
+            "    font-family:Segoe UI;"
+            "}"
+            "QComboBox:hover {"
+            "    border: 1px solid pink;"
+            "}"
+            "QComboBox::drop-down {"
+            "    subcontrol-origin: padding;"
+            "    subcontrol-position: top right;"
+            "    width: 35px;"
+            "    border-left: 1px solid white;"
+            "}"
+            "QComboBox QAbstractItemView {"
+            "    background-color: pink;"
+            "    color: black;"
+            "    font-family: Segoe UI;"
             "    border: 1px solid white;"
             "    selection-background-color: pink;"
             "    selection-color: white;"
@@ -810,14 +828,17 @@ class inregistrare2(QMainWindow):
         layout.addStretch()
         Createaccount.clicked.connect(self.paginadestart)
         self.setCentralWidget(widgetprincipal)
+
     def paginadestart(self):
         self.fereastranoua = paginadestart(fereastra_alege=self)
         self.fereastranoua.show()
         self.hide()
+
     def go_back(self):
         if self.fereastra_sign2:
             self.fereastra_sign2.show()
             self.close()
+
 
 class inregistrare(QMainWindow):
     def __init__(self, fereastra_sign=None):
@@ -843,14 +864,14 @@ class inregistrare(QMainWindow):
         btn_back.setCursor(Qt.CursorShape.PointingHandCursor)
         btn_back.setStyleSheet(
             "QPushButton {"
-            "   color: black; "
-            "   font-size: 26px; "
-            "   font-weight: bold; "
-            "   background: transparent; "
-            "   border: none; "
+            "    color: black; "
+            "    font-size: 26px; "
+            "    font-weight: bold; "
+            "    background: transparent; "
+            "    border: none; "
             "}"
             "QPushButton:hover {"
-            "   color: white; "
+            "    color: white; "
             "}"
         )
         btn_back.clicked.connect(self.go_back)
@@ -858,15 +879,15 @@ class inregistrare(QMainWindow):
 
         header_layout.addStretch()
 
-        textsignin=QLabel("Sign in")
+        textsignin = QLabel("Sign in")
         textsignin.setStyleSheet("color: white; font-size: 25px; font-weight: bold; font-family: Segoe UI;")
         header_layout.addWidget(textsignin)
 
         layout.addLayout(header_layout)
         layout.addSpacing(80)
-        textpagina=QLabel("1/2")
+        textpagina = QLabel("1/2")
         textpagina.setStyleSheet("color: white; font-size: 15px; font-weight: bold; font-family: Segoe UI;")
-        layout.addWidget(textpagina,0,alignment=Qt.AlignmentFlag.AlignRight)
+        layout.addWidget(textpagina, 0, alignment=Qt.AlignmentFlag.AlignRight)
         layout.addSpacing(0)
         card = QWidget()
         card.setObjectName('card')
@@ -884,7 +905,6 @@ class inregistrare(QMainWindow):
             " font-size: 25px; "
             "font-weight: bold; "
             "font-family: Segoe UI;"
-
         )
         fullnametext = QLineEdit()
         fullnametext.setPlaceholderText("Write...")
@@ -910,7 +930,6 @@ class inregistrare(QMainWindow):
             " font-size: 25px; "
             "font-weight: bold; "
             "font-family: Segoe UI;"
-
         )
         agetext = QLineEdit("")
         agetext.setFixedHeight(40)
@@ -935,7 +954,6 @@ class inregistrare(QMainWindow):
             " font-size: 25px; "
             "font-weight: bold; "
             "font-family: Segoe UI;"
-
         )
         emailtext = QLineEdit()
         emailtext.setPlaceholderText("Write...")
@@ -961,12 +979,13 @@ class inregistrare(QMainWindow):
             " font-size: 25px; "
             "font-weight: bold; "
             "font-family: Segoe UI;"
-
         )
-        passwordtext = QLineEdit("")
-        passwordtext.setFixedHeight(40)
-        passwordtext.setPlaceholderText("Write....")
-        passwordtext.setStyleSheet(
+
+        # AICI AM ADAUGAT self.
+        self.passwordtext = QLineEdit("")
+        self.passwordtext.setFixedHeight(40)
+        self.passwordtext.setPlaceholderText("Write....")
+        self.passwordtext.setStyleSheet(
             "QLineEdit{"
             "color:gray;"
             "background-color: white;"
@@ -980,6 +999,22 @@ class inregistrare(QMainWindow):
             "border : 1px solid pink;"
             "}"
         )
+        self.passwordtext.setEchoMode(QLineEdit.EchoMode.Password)
+
+
+        pixmap = QPixmap(24, 24)
+        pixmap.fill(Qt.GlobalColor.transparent)
+        painter = QPainter(pixmap)
+        painter.setFont(QFont("Segoe UI Emoji", 12))
+        painter.drawText(pixmap.rect(), Qt.AlignmentFlag.AlignCenter, "👁")
+        painter.end()
+
+        self.eye_logare = QAction(QIcon(pixmap), "", self.passwordtext)
+        self.eye_logare.setCheckable(True)
+        self.eye_logare.triggered.connect(self.arata_parola_logare)
+        self.passwordtext.addAction(self.eye_logare, QLineEdit.ActionPosition.TrailingPosition)
+
+
         Next = QPushButton("Next")
         Next.setFixedHeight(30)
         Next.setFixedWidth(160)
@@ -1000,7 +1035,6 @@ class inregistrare(QMainWindow):
         shadow.setColor(QColor(85, 85, 85))
         Next.setGraphicsEffect(shadow)
 
-        passwordtext.setEchoMode(QLineEdit.EchoMode.Password)
         layout.addWidget(card)
         layoutcard.addSpacing(5)
         layoutcard.addWidget(fullname)
@@ -1013,7 +1047,7 @@ class inregistrare(QMainWindow):
         layoutcard.addWidget(emailtext)
         layoutcard.addSpacing(15)
         layoutcard.addWidget(password)
-        layoutcard.addWidget(passwordtext)
+        layoutcard.addWidget(self.passwordtext)  # AICI AM ADAUGAT self.
         layoutcard.addSpacing(15)
         layoutcard.addWidget(Next, alignment=Qt.AlignmentFlag.AlignHCenter)
         layoutcard.addSpacing(10)
@@ -1032,13 +1066,13 @@ class inregistrare(QMainWindow):
                         margin: 0px;
                         border-radius: 2px;
                     }
-                   
+
                     QScrollBar::handle:vertical {
                         background: rgba(0, 0, 0, 0.35); 
                         min-height: 30px;
                         border-radius: 2px;
                     }
-                   
+
                     QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
                         height: 0px;
                     }
@@ -1048,10 +1082,17 @@ class inregistrare(QMainWindow):
         Next.clicked.connect(self.intrareinregistrare2)
         self.setCentralWidget(widgetprincipal)
 
+    def arata_parola_logare(self, checked):
+        if checked:
+            self.passwordtext.setEchoMode(QLineEdit.EchoMode.Normal)
+        else:
+            self.passwordtext.setEchoMode(QLineEdit.EchoMode.Password)
+
     def intrareinregistrare2(self):
         self.fereastranoua = inregistrare2(fereastra_sign2=self)
         self.fereastranoua.show()
         self.hide()
+
     def go_back(self):
         if self.fereastra_sign:
             self.fereastra_sign.show()
@@ -1081,14 +1122,14 @@ class Parolanoua(QMainWindow):
         btn_back.setCursor(Qt.CursorShape.PointingHandCursor)
         btn_back.setStyleSheet(
             "QPushButton {"
-            "   color: black; "
-            "   font-size: 26px; "
-            "   font-weight: bold; "
-            "   background: transparent; "
-            "   border: none; "
+            "    color: black; "
+            "    font-size: 26px; "
+            "    font-weight: bold; "
+            "    background: transparent; "
+            "    border: none; "
             "}"
             "QPushButton:hover {"
-            "   color: white; "
+            "    color: white; "
             "}"
         )
         btn_back.clicked.connect(self.go_back)
@@ -1111,97 +1152,99 @@ class Parolanoua(QMainWindow):
             "}"
         )
         layoutcard = QVBoxLayout(card)
+
         password1 = QLabel("New password:")
         password1.setStyleSheet(
-            "color: black;"
-            " font-size: 23px; "
-            "font-weight: bold; "
-            "font-family: Segoe UI;"
+            "color: black; font-size: 23px; font-weight: bold; font-family: Segoe UI;"
+        )
+        self.passwordtext1 = QLineEdit("")
+        self.passwordtext1.setFixedHeight(40)
+        self.passwordtext1.setPlaceholderText("Write....")
+        self.passwordtext1.setStyleSheet(
+            "QLineEdit{color:gray; background-color: white; border: 1px solid black; border-radius: 20px; font-size: 15px; font-family: Segoe UI; font-weight: bold;}"
+            "QLineEdit:focus{border : 1px solid pink;}"
+        )
+        self.passwordtext1.setEchoMode(QLineEdit.EchoMode.Password)
 
-        )
-        passwordtext1 = QLineEdit("")
-        passwordtext1.setFixedHeight(40)
-        passwordtext1.setPlaceholderText("Write....")
-        passwordtext1.setStyleSheet(
-            "QLineEdit{"
-            "color:gray;"
-            "background-color: white;"
-            "border: 1px solid black;"
-            "border-radius: 20px;"
-            "font-size: 15px;"
-            "font-family: Segoe UI;"
-            "font-weight: bold;"
-            "}"
-            "QLineEdit:focus{"
-            "border : 1px solid pink;"
-            "}"
-        )
-        passwordtext1.setEchoMode(QLineEdit.EchoMode.Password)
         password2 = QLabel("Confirm new password:")
         password2.setStyleSheet(
-            "color: black;"
-            " font-size: 23px; "
-            "font-weight: bold; "
-            "font-family: Segoe UI;"
+            "color: black; font-size: 23px; font-weight: bold; font-family: Segoe UI;"
+        )
+        self.passwordtext2 = QLineEdit("")
+        self.passwordtext2.setFixedHeight(40)
+        self.passwordtext2.setPlaceholderText("Write....")
+        self.passwordtext2.setStyleSheet(
+            "QLineEdit{color:gray; background-color: white; border: 1px solid black; border-radius: 20px; font-size: 15px; font-family: Segoe UI; font-weight: bold;}"
+            "QLineEdit:focus{border : 1px solid pink;}"
+        )
+        self.passwordtext2.setEchoMode(QLineEdit.EchoMode.Password)
 
-        )
-        passwordtext2 = QLineEdit("")
-        passwordtext2.setFixedHeight(40)
-        passwordtext2.setPlaceholderText("Write....")
-        passwordtext2.setStyleSheet(
-            "QLineEdit{"
-            "color:gray;"
-            "background-color: white;"
-            "border: 1px solid black;"
-            "border-radius: 20px;"
-            "font-size: 15px;"
-            "font-family: Segoe UI;"
-            "font-weight: bold;"
-            "}"
-            "QLineEdit:focus{"
-            "border : 1px solid pink;"
-            "}"
-        )
-        passwordtext2.setEchoMode(QLineEdit.EchoMode.Password)
+        pixmap = QPixmap(24, 24)
+        pixmap.fill(Qt.GlobalColor.transparent)
+        painter = QPainter(pixmap)
+        painter.setFont(QFont("Segoe UI Emoji", 12))
+        painter.drawText(pixmap.rect(), Qt.AlignmentFlag.AlignCenter, "👁")
+        painter.end()
+        icon = QIcon(pixmap)
+
+
+        self.eye_logare1 = QAction(icon, "", self.passwordtext1)
+        self.eye_logare1.setCheckable(True)
+        self.eye_logare1.triggered.connect(self.arata_parola_1)
+        self.passwordtext1.addAction(self.eye_logare1, QLineEdit.ActionPosition.TrailingPosition)
+
+        self.eye_logare2 = QAction(icon, "", self.passwordtext2)
+        self.eye_logare2.setCheckable(True)
+        self.eye_logare2.triggered.connect(self.arata_parola_2)
+        self.passwordtext2.addAction(self.eye_logare2, QLineEdit.ActionPosition.TrailingPosition)
+
         Reset = QPushButton("Reset")
         Reset.setFixedHeight(40)
         Reset.setFixedWidth(150)
         Reset.setStyleSheet(
-            "QPushButton{"
-            "color: white;"
-            "background-color: black;"
-            "border: none;"
-            "border-radius: 20px;"
-            "font-size: 20px;"
-            "font-family: Segoe UI;"
-            "font-weight: bold;"
-            "}"
+            "QPushButton{color: white; background-color: black; border: none; border-radius: 20px; font-size: 20px; font-family: Segoe UI; font-weight: bold;}"
         )
         shadow = QGraphicsDropShadowEffect()
         shadow.setBlurRadius(0)
         shadow.setOffset(0, 5)
         shadow.setColor(QColor(85, 85, 85))
         Reset.setGraphicsEffect(shadow)
+
         layoutcard.addWidget(password1)
-        layoutcard.addWidget(passwordtext1)
+        layoutcard.addWidget(self.passwordtext1)
         layoutcard.addSpacing(20)
         layoutcard.addWidget(password2)
-        layoutcard.addWidget(passwordtext2)
+        layoutcard.addWidget(self.passwordtext2)
         layoutcard.addSpacing(20)
         layoutcard.addWidget(Reset, alignment=Qt.AlignmentFlag.AlignHCenter)
         layout.addWidget(card)
         layout.addStretch()
+
         Reset.clicked.connect(self.reseteaza)
         self.setCentralWidget(widgetprincipal)
+
+    def arata_parola_1(self, checked):
+        if checked:
+            self.passwordtext1.setEchoMode(QLineEdit.EchoMode.Normal)
+        else:
+            self.passwordtext1.setEchoMode(QLineEdit.EchoMode.Password)
+
+    def arata_parola_2(self, checked):
+        if checked:
+            self.passwordtext2.setEchoMode(QLineEdit.EchoMode.Normal)
+        else:
+            self.passwordtext2.setEchoMode(QLineEdit.EchoMode.Password)
+
     def reseteaza(self):
-        self.fereastranoua = logare(fereastra_anterioara=self)
-        self.fereastranoua.show()
+        self.fereastra_logare = logare(fereastra_anterioara=self)
+        self.fereastra_logare.show()
         self.hide()
 
     def go_back(self):
         if self.fereastra_parola:
             self.fereastra_parola.show()
             self.close()
+
 class Code(QMainWindow):
     def __init__(self, fereastra_send=None):
         super().__init__()
@@ -1232,14 +1275,14 @@ class Code(QMainWindow):
         btn_back.setCursor(Qt.CursorShape.PointingHandCursor)
         btn_back.setStyleSheet(
             "QPushButton {"
-            "   color: black; "
-            "   font-size: 26px; "
-            "   font-weight: bold; "
-            "   background: transparent; "
-            "   border: none; "
+            "    color: black; "
+            "    font-size: 26px; "
+            "    font-weight: bold; "
+            "    background: transparent; "
+            "    border: none; "
             "}"
             "QPushButton:hover {"
-            "   color: white; "
+            "    color: white; "
             "}"
         )
         btn_back.clicked.connect(self.go_back)
@@ -1268,7 +1311,6 @@ class Code(QMainWindow):
             " font-size: 25px; "
             "font-weight: bold; "
             "font-family: Segoe UI;"
-
         )
 
         layoutcard.addWidget(cod)
@@ -1287,7 +1329,6 @@ class Code(QMainWindow):
             box.installEventFilter(self)
             layout_code_boxes.addWidget(box)
             self.inputs.append(box)
-
 
         self.inputs[0].textChanged.connect(lambda t: self.inputs[1].setFocus() if t else None)
         self.inputs[1].textChanged.connect(lambda t: self.inputs[2].setFocus() if t else None)
@@ -1308,62 +1349,63 @@ class Code(QMainWindow):
         intrebare.setCursor(Qt.CursorShape.PointingHandCursor)
         intrebare.setStyleSheet(
             "QPushButton {"
-            "   color: black; "
-            "   font-size: 16px; "
-            "   font-family: 'Segoe UI'; "
-            "   background: transparent; "
-            "   border: none; "
-            "   text-align: left; "
+            "    color: black; "
+            "    font-size: 16px; "
+            "    font-family: 'Segoe UI'; "
+            "    background: transparent; "
+            "    border: none; "
+            "    text-align: left; "
             "}"
             "QPushButton:hover {"
-            "   color: blue; "
-            "   text-decoration: underline; "
+            "    color: blue; "
+            "    text-decoration: underline; "
             "}"
         )
-        Verify = QPushButton("Verify")
-        Verify.setFixedHeight(40)
-        Verify.setFixedWidth(160)
-        Verify.setStyleSheet(
+        intrebare.clicked.connect(self.resend_code)
+
+        self.Verify = QPushButton("Verify")
+        self.Verify.setFixedHeight(40)
+        self.Verify.setFixedWidth(160)
+        self.Verify.setStyleSheet(
             "QPushButton{color: white; background-color: black; border-radius: 15px; font-size: 15px; font-weight: bold; font-family: Segoe UI;}")
 
         shadow = QGraphicsDropShadowEffect()
         shadow.setBlurRadius(0)
         shadow.setOffset(0, 5)
         shadow.setColor(QColor(85, 85, 85))
-        Verify.setGraphicsEffect(shadow)
+        self.Verify.setGraphicsEffect(shadow)
         layoutcard.addWidget(intrebare, alignment=Qt.AlignmentFlag.AlignRight)
         layoutcard.addSpacing(20)
-        layoutcard.addWidget(Verify, alignment=Qt.AlignmentFlag.AlignHCenter)
+        layoutcard.addWidget(self.Verify, alignment=Qt.AlignmentFlag.AlignHCenter)
         layoutcard.addSpacing(10)
         layout.addWidget(card)
         layout.addStretch()
-        Verify.clicked.connect(self.facemparolanoua)
+        self.Verify.clicked.connect(self.facemparolanoua)
         self.setCentralWidget(widgetprincipal)
         self.timer.start()
 
     def actualizeaza_cronometru(self):
-            if self.timp_ramas > 0:
-                self.timp_ramas -= 1
-                minute = self.timp_ramas // 60
-                secunde = self.timp_ramas % 60
-                self.label_timer.setText(f"{minute:02d}:{secunde:02d}")
-            else:
-                self.timer.stop()
-                self.label_timer.setText("Code expired!")
-                self.Verify.setEnabled(False)
+        if self.timp_ramas > 0:
+            self.timp_ramas -= 1
+            minute = self.timp_ramas // 60
+            secunde = self.timp_ramas % 60
+            self.label_timer.setText(f"{minute:02d}:{secunde:02d}")
+        else:
+            self.timer.stop()
+            self.label_timer.setText("Code expired!")
+            self.Verify.setEnabled(False)
 
     def resend_code(self):
+        self.timp_ramas = 120
+        self.label_timer.setText("02:00")
+        self.Verify.setEnabled(True)
+        self.timer.start()
 
-            self.timp_ramas = 120
-            self.label_timer.setText("02:00")
-            self.Verify.setEnabled(True)
-            self.timer.start()
+        for input_box in self.inputs:
+            input_box.clear()
+        self.inputs[0].setFocus()
 
-            for input_box in self.inputs:
-                input_box.clear()
-            self.inputs[0].setFocus()
-
-    def eventFilter(self,source,event):
+    def eventFilter(self, source, event):
         if event.type() == QEvent.Type.KeyPress and event.key() == Qt.Key.Key_Backspace:
             if source in self.inputs:
                 idx = self.inputs.index(source)
@@ -1372,14 +1414,18 @@ class Code(QMainWindow):
                     self.inputs[idx - 1].clear()
                     return True
         return super().eventFilter(source, event)
+
     def facemparolanoua(self):
         self.fereastranoua = Parolanoua(fereastra_parola=self)
         self.fereastranoua.show()
         self.hide()
+
     def go_back(self):
         if self.fereastra_send:
             self.fereastra_send.show()
             self.close()
+
+
 class Uitareparola(QMainWindow):
     def __init__(self, fereastra_uitare=None):
         super().__init__()
@@ -1405,14 +1451,14 @@ class Uitareparola(QMainWindow):
         btn_back.setCursor(Qt.CursorShape.PointingHandCursor)
         btn_back.setStyleSheet(
             "QPushButton {"
-            "   color: black; "
-            "   font-size: 26px; "
-            "   font-weight: bold; "
-            "   background: transparent; "
-            "   border: none; "
+            "    color: black; "
+            "    font-size: 26px; "
+            "    font-weight: bold; "
+            "    background: transparent; "
+            "    border: none; "
             "}"
             "QPushButton:hover {"
-            "   color: white; "
+            "    color: white; "
             "}"
         )
         btn_back.clicked.connect(self.go_back)
@@ -1441,7 +1487,6 @@ class Uitareparola(QMainWindow):
             " font-size: 20px; "
             "font-weight: bold; "
             "font-family: Segoe UI;"
-
         )
         emailtext = QLineEdit()
         emailtext.setPlaceholderText("Write...")
@@ -1460,7 +1505,7 @@ class Uitareparola(QMainWindow):
             "border : 1px solid pink;"
             "}"
         )
-        sendcode=QPushButton("Send Code")
+        sendcode = QPushButton("Send Code")
         sendcode.setFixedHeight(40)
         sendcode.setFixedWidth(150)
         sendcode.setStyleSheet(
@@ -1487,14 +1532,17 @@ class Uitareparola(QMainWindow):
         layout.addStretch()
         sendcode.clicked.connect(self.primirecod)
         self.setCentralWidget(widgetprincipal)
+
     def primirecod(self):
-        self.fereastranoua=Code(fereastra_send=self)
+        self.fereastranoua = Code(fereastra_send=self)
         self.fereastranoua.show()
         self.hide()
+
     def go_back(self):
         if self.fereastra_uitare:
             self.fereastra_uitare.show()
             self.close()
+
 
 class logare(QMainWindow):
     def __init__(self, fereastra_anterioara=None):
@@ -1521,14 +1569,14 @@ class logare(QMainWindow):
         btn_back.setCursor(Qt.CursorShape.PointingHandCursor)
         btn_back.setStyleSheet(
             "QPushButton {"
-            "   color: black; "
-            "   font-size: 26px; "
-            "   font-weight: bold; "
-            "   background: transparent; "
-            "   border: none; "
+            "    color: black; "
+            "    font-size: 26px; "
+            "    font-weight: bold; "
+            "    background: transparent; "
+            "    border: none; "
             "}"
             "QPushButton:hover {"
-            "   color: white; "
+            "    color: white; "
             "}"
         )
         btn_back.clicked.connect(self.go_back)
@@ -1542,7 +1590,7 @@ class logare(QMainWindow):
 
         layout.addLayout(header_layout)
         layout.addSpacing(140)
-        card=QWidget()
+        card = QWidget()
         card.setObjectName('card')
         card.setStyleSheet(
             "#card{"
@@ -1551,16 +1599,15 @@ class logare(QMainWindow):
             "border-radius: 10px;"
             "}"
         )
-        layoutcard=QVBoxLayout(card)
-        email=QLabel("Email:")
+        layoutcard = QVBoxLayout(card)
+        email = QLabel("Email:")
         email.setStyleSheet(
             "color: black;"
             " font-size: 25px; "
             "font-weight: bold; "
             "font-family: Segoe UI;"
-
         )
-        emailtext=QLineEdit()
+        emailtext = QLineEdit()
         emailtext.setPlaceholderText("Write...")
         emailtext.setFixedHeight(40)
         emailtext.setStyleSheet(
@@ -1578,18 +1625,17 @@ class logare(QMainWindow):
             "}"
         )
 
-        password=QLabel("Password:")
+        password = QLabel("Password:")
         password.setStyleSheet(
             "color: black;"
             " font-size: 25px; "
             "font-weight: bold; "
             "font-family: Segoe UI;"
-
         )
-        passwordtext=QLineEdit("" )
-        passwordtext.setFixedHeight(40)
-        passwordtext.setPlaceholderText("Write....")
-        passwordtext.setStyleSheet(
+        self.passwordtext = QLineEdit("")
+        self.passwordtext.setFixedHeight(40)
+        self.passwordtext.setPlaceholderText("Write....")
+        self.passwordtext.setStyleSheet(
             "QLineEdit{"
             "color:gray;"
             "background-color: white;"
@@ -1603,49 +1649,43 @@ class logare(QMainWindow):
             "border : 1px solid pink;"
             "}"
         )
-        passwordtext.setEchoMode(QLineEdit.EchoMode.Password)
+        self.passwordtext.setEchoMode(QLineEdit.EchoMode.Password)
 
-        def creeaza_icon_emoji(text):
-            pixmap = QPixmap(24, 24)
-            pixmap.fill(Qt.GlobalColor.transparent)
-            painter = QPainter(pixmap)
-            painter.setFont(QFont("Segoe UI Emoji", 12))
-            painter.drawText(pixmap.rect(), Qt.AlignmentFlag.AlignCenter, text)
-            painter.end()
-            return QIcon(pixmap)
+        pixmap = QPixmap(24, 24)
+        pixmap.fill(Qt.GlobalColor.transparent)
+        painter = QPainter(pixmap)
+        painter.setFont(QFont("Segoe UI Emoji", 12))
+        painter.drawText(pixmap.rect(), Qt.AlignmentFlag.AlignCenter, "👁")
+        painter.end()
 
-        icon_ochi = creeaza_icon_emoji("👁")
+        self.eye_logare = QAction(QIcon(pixmap), "", self.passwordtext)
+        self.eye_logare.setCheckable(True)
+        self.eye_logare.triggered.connect(self.arata_parola_logare)
+        self.passwordtext.addAction(self.eye_logare, QLineEdit.ActionPosition.TrailingPosition)
 
-        eye_logare = QAction(icon_ochi, "", passwordtext)
-        eye_logare.setCheckable(True)
-        eye_logare.setCursor(Qt.CursorShape.PointingHandCursor)
+        self.eye_logare = QAction("👁", self.passwordtext)
+        self.eye_logare.setCheckable(True)
+        self.eye_logare.triggered.connect(self.arata_parola_logare)
+        self.passwordtext.addAction(self.eye_logare, QLineEdit.ActionPosition.TrailingPosition)
 
-        def arata_parola_logare(este_bifat):
-            if este_bifat:
-                passwordtext.setEchoMode(QLineEdit.EchoMode.Normal)
-            else:
-                passwordtext.setEchoMode(QLineEdit.EchoMode.Password)
-
-        eye_logare.toggled.connect(arata_parola_logare)
-        passwordtext.addAction(eye_logare, QLineEdit.ActionPosition.TrailingPosition)
         intrebare = QPushButton("Forgot your password?")
         intrebare.setCursor(Qt.CursorShape.PointingHandCursor)
         intrebare.setStyleSheet(
             "QPushButton {"
-            "   color: black; "
-            "   font-size: 12px; "
-            "   font-family: 'Segoe UI'; "
-            "   background: transparent; "
-            "   border: none; "
-            "   text-align: left; "
+            "    color: black; "
+            "    font-size: 12px; "
+            "    font-family: 'Segoe UI'; "
+            "    background: transparent; "
+            "    border: none; "
+            "    text-align: left; "
             "}"
             "QPushButton:hover {"
-            "   color: blue; "
-            "   text-decoration: underline; "
+            "    color: blue; "
+            "    text-decoration: underline; "
             "}"
         )
         intrebare.clicked.connect(self.uitareparola)
-        Getin=QPushButton("Get in")
+        Getin = QPushButton("Get in")
         Getin.setFixedHeight(40)
         Getin.setFixedWidth(150)
         Getin.setStyleSheet(
@@ -1669,7 +1709,7 @@ class logare(QMainWindow):
         layoutcard.addWidget(emailtext)
         layoutcard.addSpacing(15)
         layoutcard.addWidget(password)
-        layoutcard.addWidget(passwordtext)
+        layoutcard.addWidget(self.passwordtext)
         layoutcard.addWidget(intrebare)
         layoutcard.addSpacing(15)
         layoutcard.addWidget(Getin, alignment=Qt.AlignmentFlag.AlignHCenter)
@@ -1677,19 +1717,29 @@ class logare(QMainWindow):
         layout.addStretch()
         Getin.clicked.connect(self.intrarecont)
         self.setCentralWidget(widgetprincipal)
+
+    def arata_parola_logare(self, checked):
+        if checked:
+            self.passwordtext.setEchoMode(QLineEdit.EchoMode.Normal)
+        else:
+            self.passwordtext.setEchoMode(QLineEdit.EchoMode.Password)
+
     def intrarecont(self):
-        self.fereastranoua = paginadestart(fereastra_alege=self)
-        self.fereastranoua.show()
+        self.fereastra_start = paginadestart(fereastra_alege=self)
+        self.fereastra_start.show()
         self.hide()
+
     def uitareparola(self):
-        self.fereastranoua = Uitareparola(fereastra_uitare=self)
-        self.fereastranoua.show()
+        self.fereastra_uitare_parola = Uitareparola(fereastra_uitare=self)
+        self.fereastra_uitare_parola.show()
         self.hide()
 
     def go_back(self):
         if self.fereastra_anterioara:
             self.fereastra_anterioara.show()
             self.close()
+
+
 class primaclasa(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -1767,17 +1817,20 @@ class primaclasa(QMainWindow):
         self.setCentralWidget(widgetprincipal)
 
     def intrarelogare(self):
-        self.fereastranoua = logare(fereastra_anterioara=self)
-        self.fereastranoua.show()
+        self.fereastra_logare = logare(fereastra_anterioara=self)
+        self.fereastra_logare.show()
         self.hide()
 
     def intrareinregistrare(self):
-        self.fereastranoua=inregistrare(fereastra_sign=self)
-        self.fereastranoua.show()
+        self.fereastra_inregistrare = inregistrare(fereastra_sign=self)
+        self.fereastra_inregistrare.show()
         self.hide()
+
+
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     app_principal = primaclasa()
     app_principal.show()
 
     sys.exit(app.exec())
+
