@@ -563,6 +563,30 @@ class food(QMainWindow):
 
         layout.addSpacing(20)
 
+        Snacks = QPushButton("Snacks")
+        Snacks.setFixedHeight(50)
+        Snacks.setFixedWidth(200)
+        Snacks.setStyleSheet(
+            "QPushButton{"
+            "background-color: white;"
+            "border: none;"
+            "border-radius: 25px;"
+            "font-size: 25px;"
+            "font-family: Segoe UI;"
+            "font-weight: bold;"
+            "}"
+            "QPushButton:hover{"
+            "color: white;"
+            "background-color: black;"
+            "}"
+        )
+        shadow = QGraphicsDropShadowEffect()
+        shadow.setBlurRadius(0)
+        shadow.setOffset(0, 5)
+        shadow.setColor(QColor(85, 85, 85))
+        Snacks.setGraphicsEffect(shadow)
+        layout.addWidget(Snacks, alignment=Qt.AlignmentFlag.AlignHCenter)
+
         layout.addSpacing(20)
         layout.addStretch()
         self.setCentralWidget(widgetprincipal)
