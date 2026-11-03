@@ -9,7 +9,7 @@ from PyQt6.QtWidgets import (
     QMessageBox
 )
 
-# Calculează calea dinamică către pozabackground.jpeg din același folder cu scriptul
+# Calculeaz calea dinamică către pozabackground.jpeg din același folder cu scriptul
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 BG_PATH = os.path.join(BASE_DIR, "pozabackground.jpeg").replace("\\", "/")
 
