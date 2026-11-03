@@ -508,7 +508,10 @@ class food(QMainWindow):
         Breakfast.setGraphicsEffect(shadow)
         layout.addWidget(Breakfast, alignment=Qt.AlignmentFlag.AlignHCenter)
 
-        Lunch = QPushButton("Breakfast")
+        layout.addSpacing(20)
+
+
+        Lunch = QPushButton("Lunch")
         Lunch.setFixedHeight(50)
         Lunch.setFixedWidth(200)
         Lunch.setStyleSheet(
@@ -531,6 +534,34 @@ class food(QMainWindow):
         shadow.setColor(QColor(85, 85, 85))
         Lunch.setGraphicsEffect(shadow)
         layout.addWidget(Lunch, alignment=Qt.AlignmentFlag.AlignHCenter)
+
+        layout.addSpacing(20)
+
+        Diner = QPushButton("Diner")
+        Diner.setFixedHeight(50)
+        Diner.setFixedWidth(200)
+        Diner.setStyleSheet(
+            "QPushButton{"
+            "background-color: white;"
+            "border: none;"
+            "border-radius: 25px;"
+            "font-size: 25px;"
+            "font-family: Segoe UI;"
+            "font-weight: bold;"
+            "}"
+            "QPushButton:hover{"
+            "color: white;"
+            "background-color: black;"
+            "}"
+        )
+        shadow = QGraphicsDropShadowEffect()
+        shadow.setBlurRadius(0)
+        shadow.setOffset(0, 5)
+        shadow.setColor(QColor(85, 85, 85))
+        Diner.setGraphicsEffect(shadow)
+        layout.addWidget(Diner, alignment=Qt.AlignmentFlag.AlignHCenter)
+
+        layout.addSpacing(20)
 
         layout.addSpacing(20)
         layout.addStretch()
