@@ -479,6 +479,37 @@ class food(QMainWindow):
 
         layout.addLayout(header_layout)
         layout.addSpacing(50)
+        Question = QLabel("What part of the day is it?")
+        Question.setStyleSheet("color: white; font-size: 32px; font-weight: bold; font-family: Segoe UI;")
+        Question.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        Question.setWordWrap(True)
+        layout.addWidget(Question)
+        layout.addSpacing(40)
+        Breakfast = QPushButton("Breakfast")
+        Breakfast.setFixedHeight(50)
+        Breakfast.setFixedWidth(200)
+        Breakfast.setStyleSheet(
+            "QPushButton{"
+            "background-color: white;"
+            "border: none;"
+            "border-radius: 25px;"
+            "font-size: 25px;"
+            "font-family: Segoe UI;"
+            "font-weight: bold;"
+            "}"
+            "QPushButton:hover{"
+            "color: white;"
+            "background-color: black;"
+            "}"
+        )
+        shadow = QGraphicsDropShadowEffect()
+        shadow.setBlurRadius(0)
+        shadow.setOffset(0, 5)
+        shadow.setColor(QColor(85, 85, 85))
+        Breakfast.setGraphicsEffect(shadow)
+        layout.addWidget(Breakfast, alignment=Qt.AlignmentFlag.AlignHCenter)
+
+        layout.addSpacing(20)
         layout.addStretch()
         self.setCentralWidget(widgetprincipal)
 
