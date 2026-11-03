@@ -1,6 +1,6 @@
 import sys
 from PyQt6.QtCore import Qt, QEvent, QTimer
-from PyQt6.QtGui import QColor, QFont, QIcon, QPainter, QPixmap, QAction
+from PyQt6.QtGui import QColor, QFont, QIcon, QPainter, QPixmap, QAction, QIntValidator
 from PyQt6.QtWidgets import (
     QApplication, QWidget, QLabel, QVBoxLayout, QPushButton, QMainWindow,
     QGraphicsDropShadowEffect, QLineEdit, QComboBox, QHBoxLayout, QScrollArea,
@@ -666,6 +666,7 @@ class inregistrare2(QMainWindow):
             "font-family: Segoe UI;"
         )
         self.Heighttext = QLineEdit()
+        self.Heighttext.setValidator(QIntValidator(1, 300, self))
         self.Heighttext.setPlaceholderText("Write...")
         self.Heighttext.setFixedHeight(40)
         self.Heighttext.setStyleSheet(
@@ -691,6 +692,7 @@ class inregistrare2(QMainWindow):
             "font-family: Segoe UI;"
         )
         self.Weighttext = QLineEdit("")
+        self.Weighttext.setValidator(QIntValidator(1, 150, self))
         self.Weighttext.setFixedHeight(40)
         self.Weighttext.setPlaceholderText("Write....")
         self.Weighttext.setStyleSheet(
@@ -967,6 +969,7 @@ class inregistrare(QMainWindow):
             "font-family: Segoe UI;"
         )
         self.agetext = QLineEdit("")
+        self.agetext.setValidator(QIntValidator(1, 120, self))
         self.agetext.setFixedHeight(40)
         self.agetext.setPlaceholderText("Write....")
         self.agetext.setStyleSheet(
@@ -1364,6 +1367,7 @@ class Code(QMainWindow):
         self.inputs = []
         for i in range(4):
             box = QLineEdit()
+            box.setValidator(QIntValidator(0, 9, self))
             box.setFixedWidth(35)
             box.setFixedHeight(45)
             box.setMaxLength(1)
@@ -1694,7 +1698,7 @@ class logare(QMainWindow):
             "font-family: Segoe UI;"
             "font-weight: bold;"
             "}"
-            "QLineEdit:focus{"
+            "QLineEdit::focus{"
             "border : 1px solid pink;"
             "}"
         )
