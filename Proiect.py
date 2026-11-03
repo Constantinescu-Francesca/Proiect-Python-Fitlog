@@ -1,3 +1,4 @@
+import os
 import sys
 from PyQt6.QtCore import Qt, QEvent, QTimer
 from PyQt6.QtGui import QColor, QFont, QIcon, QPainter, QPixmap, QAction, QIntValidator
@@ -6,6 +7,10 @@ from PyQt6.QtWidgets import (
     QGraphicsDropShadowEffect, QLineEdit, QComboBox, QHBoxLayout, QScrollArea,
     QMessageBox
 )
+
+# Calculează calea dinamică către pozabackground.jpeg din același folder cu scriptul
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+BG_PATH = os.path.join(BASE_DIR, "pozabackground.jpeg").replace("\\", "/")
 
 
 class Upperbody(QMainWindow):
@@ -20,9 +25,7 @@ class Upperbody(QMainWindow):
         widgetprincipal = QWidget()
         widgetprincipal.setObjectName('widgetprincipal')
         widgetprincipal.setStyleSheet(
-            "#widgetprincipal{"
-            "border-image:url(C:/Users/HP/Desktop/PCLPPython/pozabackground.jpeg);"
-            "}"
+            f"#widgetprincipal{{ border-image: url('{BG_PATH}'); }}"
         )
         widgetprincipal.setContentsMargins(40, 5, 40, 70)
         layout = QVBoxLayout(widgetprincipal)
@@ -175,9 +178,7 @@ class Lowerbody(QMainWindow):
         widgetprincipal = QWidget()
         widgetprincipal.setObjectName('widgetprincipal')
         widgetprincipal.setStyleSheet(
-            "#widgetprincipal{"
-            "border-image:url(C:/Users/HP/Desktop/PCLPPython/pozabackground.jpeg);"
-            "}"
+            f"#widgetprincipal{{ border-image: url('{BG_PATH}'); }}"
         )
         widgetprincipal.setContentsMargins(40, 5, 40, 70)
         layout = QVBoxLayout(widgetprincipal)
@@ -281,9 +282,7 @@ class sport(QMainWindow):
         widgetprincipal = QWidget()
         widgetprincipal.setObjectName('widgetprincipal')
         widgetprincipal.setStyleSheet(
-            "#widgetprincipal{"
-            "border-image:url(C:/Users/HP/Desktop/PCLPPython/pozabackground.jpeg);"
-            "}"
+            f"#widgetprincipal{{ border-image: url('{BG_PATH}'); }}"
         )
         widgetprincipal.setContentsMargins(40, 5, 40, 70)
         layout = QVBoxLayout(widgetprincipal)
@@ -450,9 +449,7 @@ class food(QMainWindow):
         widgetprincipal = QWidget()
         widgetprincipal.setObjectName('widgetprincipal')
         widgetprincipal.setStyleSheet(
-            "#widgetprincipal{"
-            "border-image:url(C:/Users/HP/Desktop/PCLPPython/pozabackground.jpeg);"
-            "}"
+            f"#widgetprincipal{{ border-image: url('{BG_PATH}'); }}"
         )
         widgetprincipal.setContentsMargins(40, 5, 40, 70)
         layout = QVBoxLayout(widgetprincipal)
@@ -531,9 +528,7 @@ class paginadestart(QMainWindow):
         widgetprincipal = QWidget()
         widgetprincipal.setObjectName('widgetprincipal')
         widgetprincipal.setStyleSheet(
-            "#widgetprincipal{"
-            "border-image:url(C:/Users/HP/Desktop/PCLPPython/pozabackground.jpeg);"
-            "}"
+            f"#widgetprincipal{{ border-image: url('{BG_PATH}'); }}"
         )
         widgetprincipal.setContentsMargins(40, 120, 40, 70)
         layout = QVBoxLayout(widgetprincipal)
@@ -611,9 +606,7 @@ class inregistrare2(QMainWindow):
         widgetprincipal = QWidget()
         widgetprincipal.setObjectName('widgetprincipal')
         widgetprincipal.setStyleSheet(
-            "#widgetprincipal{"
-            "border-image:url(C:/Users/HP/Desktop/PCLPPython/pozabackground.jpeg);"
-            "}"
+            f"#widgetprincipal{{ border-image: url('{BG_PATH}'); }}"
         )
         widgetprincipal.setContentsMargins(40, 5, 40, 70)
         layout = QVBoxLayout(widgetprincipal)
@@ -684,7 +677,7 @@ class inregistrare2(QMainWindow):
             "}"
         )
 
-        Weight = QLabel("Age:")
+        Weight = QLabel("Weight:")
         Weight.setStyleSheet(
             "color: black;"
             " font-size: 25px; "
@@ -692,7 +685,7 @@ class inregistrare2(QMainWindow):
             "font-family: Segoe UI;"
         )
         self.Weighttext = QLineEdit("")
-        self.Weighttext.setValidator(QIntValidator(1, 150, self))
+        self.Weighttext.setValidator(QIntValidator(1, 300, self))
         self.Weighttext.setFixedHeight(40)
         self.Weighttext.setPlaceholderText("Write....")
         self.Weighttext.setStyleSheet(
@@ -888,9 +881,7 @@ class inregistrare(QMainWindow):
         widgetprincipal = QWidget()
         widgetprincipal.setObjectName('widgetprincipal')
         widgetprincipal.setStyleSheet(
-            "#widgetprincipal{"
-            "border-image:url(C:/Users/HP/Desktop/PCLPPython/pozabackground.jpeg);"
-            "}"
+            f"#widgetprincipal{{ border-image: url('{BG_PATH}'); }}"
         )
         widgetprincipal.setContentsMargins(40, 4, 40, 70)
         layout = QVBoxLayout(widgetprincipal)
@@ -1148,9 +1139,7 @@ class Parolanoua(QMainWindow):
         widgetprincipal = QWidget()
         widgetprincipal.setObjectName('widgetprincipal')
         widgetprincipal.setStyleSheet(
-            "#widgetprincipal{"
-            "border-image:url(C:/Users/HP/Desktop/PCLPPython/pozabackground.jpeg);"
-            "}"
+            f"#widgetprincipal{{ border-image: url('{BG_PATH}'); }}"
         )
         widgetprincipal.setContentsMargins(40, 5, 40, 70)
 
@@ -1306,9 +1295,7 @@ class Code(QMainWindow):
         widgetprincipal = QWidget()
         widgetprincipal.setObjectName('widgetprincipal')
         widgetprincipal.setStyleSheet(
-            "#widgetprincipal{"
-            "border-image:url(C:/Users/HP/Desktop/PCLPPython/pozabackground.jpeg);"
-            "}"
+            f"#widgetprincipal{{ border-image: url('{BG_PATH}'); }}"
         )
         widgetprincipal.setContentsMargins(40, 5, 40, 70)
 
@@ -1487,9 +1474,7 @@ class Uitareparola(QMainWindow):
         widgetprincipal = QWidget()
         widgetprincipal.setObjectName('widgetprincipal')
         widgetprincipal.setStyleSheet(
-            "#widgetprincipal{"
-            "border-image:url(C:/Users/HP/Desktop/PCLPPython/pozabackground.jpeg);"
-            "}"
+            f"#widgetprincipal{{ border-image: url('{BG_PATH}'); }}"
         )
         widgetprincipal.setContentsMargins(40, 5, 40, 70)
 
@@ -1608,9 +1593,7 @@ class logare(QMainWindow):
         widgetprincipal = QWidget()
         widgetprincipal.setObjectName('widgetprincipal')
         widgetprincipal.setStyleSheet(
-            "#widgetprincipal{"
-            "border-image:url(C:/Users/HP/Desktop/PCLPPython/pozabackground.jpeg);"
-            "}"
+            f"#widgetprincipal{{ border-image: url('{BG_PATH}'); }}"
         )
         widgetprincipal.setContentsMargins(40, 5, 40, 70)
 
@@ -1802,9 +1785,7 @@ class primaclasa(QMainWindow):
         widgetprincipal = QWidget()
         widgetprincipal.setObjectName('widgetprincipal')
         widgetprincipal.setStyleSheet(
-            "#widgetprincipal{"
-            "border-image:url(C:/Users/HP/Desktop/PCLPPython/pozabackground.jpeg);"
-            "}"
+            f"#widgetprincipal{{ border-image: url('{BG_PATH}'); }}"
         )
         widgetprincipal.setContentsMargins(40, 70, 40, 70)
 
