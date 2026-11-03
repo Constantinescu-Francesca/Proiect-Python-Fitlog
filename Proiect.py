@@ -1,3 +1,4 @@
+
 import os
 import sys
 from PyQt6.QtCore import Qt, QEvent, QTimer
@@ -506,6 +507,30 @@ class food(QMainWindow):
         shadow.setColor(QColor(85, 85, 85))
         Breakfast.setGraphicsEffect(shadow)
         layout.addWidget(Breakfast, alignment=Qt.AlignmentFlag.AlignHCenter)
+
+        Lunch = QPushButton("Breakfast")
+        Lunch.setFixedHeight(50)
+        Lunch.setFixedWidth(200)
+        Lunch.setStyleSheet(
+            "QPushButton{"
+            "background-color: white;"
+            "border: none;"
+            "border-radius: 25px;"
+            "font-size: 25px;"
+            "font-family: Segoe UI;"
+            "font-weight: bold;"
+            "}"
+            "QPushButton:hover{"
+            "color: white;"
+            "background-color: black;"
+            "}"
+        )
+        shadow = QGraphicsDropShadowEffect()
+        shadow.setBlurRadius(0)
+        shadow.setOffset(0, 5)
+        shadow.setColor(QColor(85, 85, 85))
+        Lunch.setGraphicsEffect(shadow)
+        layout.addWidget(Lunch, alignment=Qt.AlignmentFlag.AlignHCenter)
 
         layout.addSpacing(20)
         layout.addStretch()
