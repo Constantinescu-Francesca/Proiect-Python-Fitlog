@@ -3,7 +3,8 @@ from PyQt6.QtCore import Qt, QEvent, QTimer
 from PyQt6.QtGui import QColor, QFont, QIcon, QPainter, QPixmap, QAction
 from PyQt6.QtWidgets import (
     QApplication, QWidget, QLabel, QVBoxLayout, QPushButton, QMainWindow,
-    QGraphicsDropShadowEffect, QLineEdit, QComboBox, QHBoxLayout, QScrollArea
+    QGraphicsDropShadowEffect, QLineEdit, QComboBox, QHBoxLayout, QScrollArea,
+    QMessageBox
 )
 
 
@@ -664,10 +665,10 @@ class inregistrare2(QMainWindow):
             "font-weight: bold; "
             "font-family: Segoe UI;"
         )
-        Heighttext = QLineEdit()
-        Heighttext.setPlaceholderText("Write...")
-        Heighttext.setFixedHeight(40)
-        Heighttext.setStyleSheet(
+        self.Heighttext = QLineEdit()
+        self.Heighttext.setPlaceholderText("Write...")
+        self.Heighttext.setFixedHeight(40)
+        self.Heighttext.setStyleSheet(
             "QLineEdit{"
             "color:gray;"
             "background-color: white;"
@@ -689,10 +690,10 @@ class inregistrare2(QMainWindow):
             "font-weight: bold; "
             "font-family: Segoe UI;"
         )
-        Weighttext = QLineEdit("")
-        Weighttext.setFixedHeight(40)
-        Weighttext.setPlaceholderText("Write....")
-        Weighttext.setStyleSheet(
+        self.Weighttext = QLineEdit("")
+        self.Weighttext.setFixedHeight(40)
+        self.Weighttext.setPlaceholderText("Write....")
+        self.Weighttext.setStyleSheet(
             "QLineEdit{"
             "color:gray;"
             "background-color: white;"
@@ -713,13 +714,13 @@ class inregistrare2(QMainWindow):
             "font-weight: bold; "
             "font-family: Segoe UI;"
         )
-        sagetica1 = QComboBox()
-        sagetica1.addItem("Get toned")
-        sagetica1.addItem("Gain muscle and weight")
-        sagetica1.addItem("Gain muscle and lose weight")
-        sagetica1.setPlaceholderText("Choose")
-        sagetica1.setFixedHeight(40)
-        sagetica1.setStyleSheet(
+        self.sagetica1 = QComboBox()
+        self.sagetica1.addItem("Get toned")
+        self.sagetica1.addItem("Gain muscle and weight")
+        self.sagetica1.addItem("Gain muscle and lose weight")
+        self.sagetica1.setPlaceholderText("Choose")
+        self.sagetica1.setFixedHeight(40)
+        self.sagetica1.setStyleSheet(
             "QComboBox {"
             "    background-color: white;"
             "    color: black;"
@@ -757,12 +758,12 @@ class inregistrare2(QMainWindow):
             "font-family: Segoe UI;"
         )
 
-        sagetica2 = QComboBox()
-        sagetica2.addItem("Yes")
-        sagetica2.addItem("No")
-        sagetica2.setPlaceholderText("Choose")
-        sagetica2.setFixedHeight(40)
-        sagetica2.setStyleSheet(
+        self.sagetica2 = QComboBox()
+        self.sagetica2.addItem("Yes")
+        self.sagetica2.addItem("No")
+        self.sagetica2.setPlaceholderText("Choose")
+        self.sagetica2.setFixedHeight(40)
+        self.sagetica2.setStyleSheet(
             "QComboBox {"
             "    background-color: white;"
             "    color: black;"
@@ -816,16 +817,16 @@ class inregistrare2(QMainWindow):
         layout.addWidget(card)
         layoutcard.addSpacing(5)
         layoutcard.addWidget(Height)
-        layoutcard.addWidget(Heighttext)
+        layoutcard.addWidget(self.Heighttext)
         layoutcard.addSpacing(15)
         layoutcard.addWidget(Weight)
-        layoutcard.addWidget(Weighttext)
+        layoutcard.addWidget(self.Weighttext)
         layoutcard.addSpacing(15)
         layoutcard.addWidget(Goal)
-        layoutcard.addWidget(sagetica1)
+        layoutcard.addWidget(self.sagetica1)
         layoutcard.addSpacing(15)
         layoutcard.addWidget(question)
-        layoutcard.addWidget(sagetica2)
+        layoutcard.addWidget(self.sagetica2)
         layoutcard.addSpacing(15)
         layoutcard.addWidget(Createaccount, alignment=Qt.AlignmentFlag.AlignHCenter)
         layoutcard.addSpacing(10)
@@ -861,6 +862,9 @@ class inregistrare2(QMainWindow):
         self.setCentralWidget(widgetprincipal)
 
     def paginadestart(self):
+        if self.Heighttext.text().strip() == "" or self.Weighttext.text().strip() == "" or self.sagetica1.currentIndex() == -1 or self.sagetica2.currentIndex() == -1:
+            QMessageBox.warning(self, "Error", "Please fill in all fields!")
+            return
         self.fereastranoua = paginadestart(fereastra_alege=self)
         self.fereastranoua.show()
         self.hide()
@@ -937,10 +941,10 @@ class inregistrare(QMainWindow):
             "font-weight: bold; "
             "font-family: Segoe UI;"
         )
-        fullnametext = QLineEdit()
-        fullnametext.setPlaceholderText("Write...")
-        fullnametext.setFixedHeight(40)
-        fullnametext.setStyleSheet(
+        self.fullnametext = QLineEdit()
+        self.fullnametext.setPlaceholderText("Write...")
+        self.fullnametext.setFixedHeight(40)
+        self.fullnametext.setStyleSheet(
             "QLineEdit{"
             "color:gray;"
             "background-color: white;"
@@ -962,10 +966,10 @@ class inregistrare(QMainWindow):
             "font-weight: bold; "
             "font-family: Segoe UI;"
         )
-        agetext = QLineEdit("")
-        agetext.setFixedHeight(40)
-        agetext.setPlaceholderText("Write....")
-        agetext.setStyleSheet(
+        self.agetext = QLineEdit("")
+        self.agetext.setFixedHeight(40)
+        self.agetext.setPlaceholderText("Write....")
+        self.agetext.setStyleSheet(
             "QLineEdit{"
             "color:gray;"
             "background-color: white;"
@@ -986,10 +990,10 @@ class inregistrare(QMainWindow):
             "font-weight: bold; "
             "font-family: Segoe UI;"
         )
-        emailtext = QLineEdit()
-        emailtext.setPlaceholderText("Write...")
-        emailtext.setFixedHeight(40)
-        emailtext.setStyleSheet(
+        self.emailtext = QLineEdit()
+        self.emailtext.setPlaceholderText("Write...")
+        self.emailtext.setFixedHeight(40)
+        self.emailtext.setStyleSheet(
             "QLineEdit{"
             "color:gray;"
             "background-color: white;"
@@ -1012,7 +1016,6 @@ class inregistrare(QMainWindow):
             "font-family: Segoe UI;"
         )
 
-        # AICI AM ADAUGAT self.
         self.passwordtext = QLineEdit("")
         self.passwordtext.setFixedHeight(40)
         self.passwordtext.setPlaceholderText("Write....")
@@ -1032,7 +1035,6 @@ class inregistrare(QMainWindow):
         )
         self.passwordtext.setEchoMode(QLineEdit.EchoMode.Password)
 
-
         pixmap = QPixmap(24, 24)
         pixmap.fill(Qt.GlobalColor.transparent)
         painter = QPainter(pixmap)
@@ -1044,7 +1046,6 @@ class inregistrare(QMainWindow):
         self.eye_logare.setCheckable(True)
         self.eye_logare.triggered.connect(self.arata_parola_logare)
         self.passwordtext.addAction(self.eye_logare, QLineEdit.ActionPosition.TrailingPosition)
-
 
         Next = QPushButton("Next")
         Next.setFixedHeight(30)
@@ -1069,16 +1070,16 @@ class inregistrare(QMainWindow):
         layout.addWidget(card)
         layoutcard.addSpacing(5)
         layoutcard.addWidget(fullname)
-        layoutcard.addWidget(fullnametext)
+        layoutcard.addWidget(self.fullnametext)
         layoutcard.addSpacing(15)
         layoutcard.addWidget(age)
-        layoutcard.addWidget(agetext)
+        layoutcard.addWidget(self.agetext)
         layoutcard.addSpacing(15)
         layoutcard.addWidget(email)
-        layoutcard.addWidget(emailtext)
+        layoutcard.addWidget(self.emailtext)
         layoutcard.addSpacing(15)
         layoutcard.addWidget(password)
-        layoutcard.addWidget(self.passwordtext)  # AICI AM ADAUGAT self.
+        layoutcard.addWidget(self.passwordtext)
         layoutcard.addSpacing(15)
         layoutcard.addWidget(Next, alignment=Qt.AlignmentFlag.AlignHCenter)
         layoutcard.addSpacing(10)
@@ -1120,6 +1121,9 @@ class inregistrare(QMainWindow):
             self.passwordtext.setEchoMode(QLineEdit.EchoMode.Password)
 
     def intrareinregistrare2(self):
+        if self.fullnametext.text().strip() == "" or self.agetext.text().strip() == "" or self.emailtext.text().strip() == "" or self.passwordtext.text().strip() == "":
+            QMessageBox.warning(self, "Error", "Please fill in all fields!")
+            return
         self.fereastranoua = inregistrare2(fereastra_sign2=self)
         self.fereastranoua.show()
         self.hide()
@@ -1128,6 +1132,8 @@ class inregistrare(QMainWindow):
         if self.fereastra_sign:
             self.fereastra_sign.show()
             self.close()
+
+
 class Parolanoua(QMainWindow):
     def __init__(self, fereastra_parola=None):
         super().__init__()
@@ -1218,7 +1224,6 @@ class Parolanoua(QMainWindow):
         painter.end()
         icon = QIcon(pixmap)
 
-
         self.eye_logare1 = QAction(icon, "", self.passwordtext1)
         self.eye_logare1.setCheckable(True)
         self.eye_logare1.triggered.connect(self.arata_parola_1)
@@ -1267,6 +1272,12 @@ class Parolanoua(QMainWindow):
             self.passwordtext2.setEchoMode(QLineEdit.EchoMode.Password)
 
     def reseteaza(self):
+        if self.passwordtext1.text().strip() == "" or self.passwordtext2.text().strip() == "":
+            QMessageBox.warning(self, "Error", "Please fill in both password fields!")
+            return
+        if self.passwordtext1.text() != self.passwordtext2.text():
+            QMessageBox.warning(self, "Error", "Passwords do not match!")
+            return
         self.fereastra_logare = logare(fereastra_anterioara=self)
         self.fereastra_logare.show()
         self.hide()
@@ -1275,6 +1286,7 @@ class Parolanoua(QMainWindow):
         if self.fereastra_parola:
             self.fereastra_parola.show()
             self.close()
+
 
 class Code(QMainWindow):
     def __init__(self, fereastra_send=None):
@@ -1447,6 +1459,9 @@ class Code(QMainWindow):
         return super().eventFilter(source, event)
 
     def facemparolanoua(self):
+        if any(box.text().strip() == "" for box in self.inputs):
+            QMessageBox.warning(self, "Error", "Please enter the full code!")
+            return
         self.fereastranoua = Parolanoua(fereastra_parola=self)
         self.fereastranoua.show()
         self.hide()
@@ -1519,10 +1534,10 @@ class Uitareparola(QMainWindow):
             "font-weight: bold; "
             "font-family: Segoe UI;"
         )
-        emailtext = QLineEdit()
-        emailtext.setPlaceholderText("Write...")
-        emailtext.setFixedHeight(40)
-        emailtext.setStyleSheet(
+        self.emailtext = QLineEdit()
+        self.emailtext.setPlaceholderText("Write...")
+        self.emailtext.setFixedHeight(40)
+        self.emailtext.setStyleSheet(
             "QLineEdit{"
             "color:gray;"
             "background-color: white;"
@@ -1556,7 +1571,7 @@ class Uitareparola(QMainWindow):
         shadow.setColor(QColor(85, 85, 85))
         sendcode.setGraphicsEffect(shadow)
         layoutcard.addWidget(email)
-        layoutcard.addWidget(emailtext)
+        layoutcard.addWidget(self.emailtext)
         layoutcard.addSpacing(20)
         layoutcard.addWidget(sendcode, alignment=Qt.AlignmentFlag.AlignHCenter)
         layout.addWidget(card)
@@ -1565,6 +1580,9 @@ class Uitareparola(QMainWindow):
         self.setCentralWidget(widgetprincipal)
 
     def primirecod(self):
+        if self.emailtext.text().strip() == "":
+            QMessageBox.warning(self, "Error", "Please enter your email address!")
+            return
         self.fereastranoua = Code(fereastra_send=self)
         self.fereastranoua.show()
         self.hide()
@@ -1638,10 +1656,10 @@ class logare(QMainWindow):
             "font-weight: bold; "
             "font-family: Segoe UI;"
         )
-        emailtext = QLineEdit()
-        emailtext.setPlaceholderText("Write...")
-        emailtext.setFixedHeight(40)
-        emailtext.setStyleSheet(
+        self.emailtext = QLineEdit()
+        self.emailtext.setPlaceholderText("Write...")
+        self.emailtext.setFixedHeight(40)
+        self.emailtext.setStyleSheet(
             "QLineEdit{"
             "color:gray;"
             "background-color: white;"
@@ -1694,11 +1712,6 @@ class logare(QMainWindow):
         self.eye_logare.triggered.connect(self.arata_parola_logare)
         self.passwordtext.addAction(self.eye_logare, QLineEdit.ActionPosition.TrailingPosition)
 
-        self.eye_logare = QAction("👁", self.passwordtext)
-        self.eye_logare.setCheckable(True)
-        self.eye_logare.triggered.connect(self.arata_parola_logare)
-        self.passwordtext.addAction(self.eye_logare, QLineEdit.ActionPosition.TrailingPosition)
-
         intrebare = QPushButton("Forgot your password?")
         intrebare.setCursor(Qt.CursorShape.PointingHandCursor)
         intrebare.setStyleSheet(
@@ -1737,7 +1750,7 @@ class logare(QMainWindow):
         Getin.setGraphicsEffect(shadow)
 
         layoutcard.addWidget(email)
-        layoutcard.addWidget(emailtext)
+        layoutcard.addWidget(self.emailtext)
         layoutcard.addSpacing(15)
         layoutcard.addWidget(password)
         layoutcard.addWidget(self.passwordtext)
@@ -1756,6 +1769,9 @@ class logare(QMainWindow):
             self.passwordtext.setEchoMode(QLineEdit.EchoMode.Password)
 
     def intrarecont(self):
+        if self.emailtext.text().strip() == "" or self.passwordtext.text().strip() == "":
+            QMessageBox.warning(self, "Error", "Please enter your email and password!")
+            return
         self.fereastra_start = paginadestart(fereastra_alege=self)
         self.fereastra_start.show()
         self.hide()
@@ -1864,4 +1880,3 @@ if __name__ == "__main__":
     app_principal.show()
 
     sys.exit(app.exec())
-
