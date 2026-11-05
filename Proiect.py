@@ -1,6 +1,9 @@
-
 import os
 import sys
+import sqlite3
+import hashlib
+import re
+
 from PyQt6.QtCore import Qt, QEvent, QTimer
 from PyQt6.QtGui import QColor, QFont, QIcon, QPainter, QPixmap, QAction, QIntValidator
 from PyQt6.QtWidgets import (
@@ -9,9 +12,36 @@ from PyQt6.QtWidgets import (
     QMessageBox
 )
 
-# Calculeaz calea dinamică către pozabackground.jpeg din același folder cu scriptul
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 BG_PATH = os.path.join(BASE_DIR, "pozabackground.jpeg").replace("\\", "/")
+
+def init_db():
+    conn = sqlite3.connect("fitlog.db")
+    cursor = conn.cursor()
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS users (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            fullname TEXT,
+            age INTEGER,
+            email TEXT UNIQUE,
+            password TEXT,
+            height INTEGER,
+            weight INTEGER,
+            goal TEXT,
+            is_athlete TEXT
+        )
+    ''')
+    conn.commit()
+    conn.close()
+
+
+def hash_password(password):
+    return hashlib.sha256(password.encode('utf-8')).hexdigest()
+
+
+def is_valid_email(email):
+    pattern = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
+    return re.match(pattern, email) is not None
 
 
 class Upperbody(QMainWindow):
@@ -26,7 +56,9 @@ class Upperbody(QMainWindow):
         widgetprincipal = QWidget()
         widgetprincipal.setObjectName('widgetprincipal')
         widgetprincipal.setStyleSheet(
-            f"#widgetprincipal{{ border-image: url('{BG_PATH}'); }}"
+            f"#widgetprincipal{{\n"
+            f"border-image:url({BG_PATH});\n"
+            f"}}"
         )
         widgetprincipal.setContentsMargins(40, 5, 40, 70)
         layout = QVBoxLayout(widgetprincipal)
@@ -179,7 +211,9 @@ class Lowerbody(QMainWindow):
         widgetprincipal = QWidget()
         widgetprincipal.setObjectName('widgetprincipal')
         widgetprincipal.setStyleSheet(
-            f"#widgetprincipal{{ border-image: url('{BG_PATH}'); }}"
+            f"#widgetprincipal{{\n"
+            f"border-image:url({BG_PATH});\n"
+            f"}}"
         )
         widgetprincipal.setContentsMargins(40, 5, 40, 70)
         layout = QVBoxLayout(widgetprincipal)
@@ -283,7 +317,9 @@ class sport(QMainWindow):
         widgetprincipal = QWidget()
         widgetprincipal.setObjectName('widgetprincipal')
         widgetprincipal.setStyleSheet(
-            f"#widgetprincipal{{ border-image: url('{BG_PATH}'); }}"
+            f"#widgetprincipal{{\n"
+            f"border-image:url({BG_PATH});\n"
+            f"}}"
         )
         widgetprincipal.setContentsMargins(40, 5, 40, 70)
         layout = QVBoxLayout(widgetprincipal)
@@ -450,7 +486,9 @@ class food(QMainWindow):
         widgetprincipal = QWidget()
         widgetprincipal.setObjectName('widgetprincipal')
         widgetprincipal.setStyleSheet(
-            f"#widgetprincipal{{ border-image: url('{BG_PATH}'); }}"
+            f"#widgetprincipal{{\n"
+            f"border-image:url({BG_PATH});\n"
+            f"}}"
         )
         widgetprincipal.setContentsMargins(40, 5, 40, 70)
         layout = QVBoxLayout(widgetprincipal)
@@ -509,85 +547,6 @@ class food(QMainWindow):
         layout.addWidget(Breakfast, alignment=Qt.AlignmentFlag.AlignHCenter)
 
         layout.addSpacing(20)
-
-
-        Lunch = QPushButton("Lunch")
-        Lunch.setFixedHeight(50)
-        Lunch.setFixedWidth(200)
-        Lunch.setStyleSheet(
-            "QPushButton{"
-            "background-color: white;"
-            "border: none;"
-            "border-radius: 25px;"
-            "font-size: 25px;"
-            "font-family: Segoe UI;"
-            "font-weight: bold;"
-            "}"
-            "QPushButton:hover{"
-            "color: white;"
-            "background-color: black;"
-            "}"
-        )
-        shadow = QGraphicsDropShadowEffect()
-        shadow.setBlurRadius(0)
-        shadow.setOffset(0, 5)
-        shadow.setColor(QColor(85, 85, 85))
-        Lunch.setGraphicsEffect(shadow)
-        layout.addWidget(Lunch, alignment=Qt.AlignmentFlag.AlignHCenter)
-
-        layout.addSpacing(20)
-
-        Diner = QPushButton("Diner")
-        Diner.setFixedHeight(50)
-        Diner.setFixedWidth(200)
-        Diner.setStyleSheet(
-            "QPushButton{"
-            "background-color: white;"
-            "border: none;"
-            "border-radius: 25px;"
-            "font-size: 25px;"
-            "font-family: Segoe UI;"
-            "font-weight: bold;"
-            "}"
-            "QPushButton:hover{"
-            "color: white;"
-            "background-color: black;"
-            "}"
-        )
-        shadow = QGraphicsDropShadowEffect()
-        shadow.setBlurRadius(0)
-        shadow.setOffset(0, 5)
-        shadow.setColor(QColor(85, 85, 85))
-        Diner.setGraphicsEffect(shadow)
-        layout.addWidget(Diner, alignment=Qt.AlignmentFlag.AlignHCenter)
-
-        layout.addSpacing(20)
-
-        Snacks = QPushButton("Snacks")
-        Snacks.setFixedHeight(50)
-        Snacks.setFixedWidth(200)
-        Snacks.setStyleSheet(
-            "QPushButton{"
-            "background-color: white;"
-            "border: none;"
-            "border-radius: 25px;"
-            "font-size: 25px;"
-            "font-family: Segoe UI;"
-            "font-weight: bold;"
-            "}"
-            "QPushButton:hover{"
-            "color: white;"
-            "background-color: black;"
-            "}"
-        )
-        shadow = QGraphicsDropShadowEffect()
-        shadow.setBlurRadius(0)
-        shadow.setOffset(0, 5)
-        shadow.setColor(QColor(85, 85, 85))
-        Snacks.setGraphicsEffect(shadow)
-        layout.addWidget(Snacks, alignment=Qt.AlignmentFlag.AlignHCenter)
-
-        layout.addSpacing(20)
         layout.addStretch()
         self.setCentralWidget(widgetprincipal)
 
@@ -608,7 +567,9 @@ class paginadestart(QMainWindow):
         widgetprincipal = QWidget()
         widgetprincipal.setObjectName('widgetprincipal')
         widgetprincipal.setStyleSheet(
-            f"#widgetprincipal{{ border-image: url('{BG_PATH}'); }}"
+            f"#widgetprincipal{{\n"
+            f"border-image:url({BG_PATH});\n"
+            f"}}"
         )
         widgetprincipal.setContentsMargins(40, 120, 40, 70)
         layout = QVBoxLayout(widgetprincipal)
@@ -676,8 +637,9 @@ class paginadestart(QMainWindow):
 
 
 class inregistrare2(QMainWindow):
-    def __init__(self, fereastra_sign2=None):
+    def __init__(self, user_data=None, fereastra_sign2=None):
         super().__init__()
+        self.user_data = user_data or {}
         self.fereastra_sign2 = fereastra_sign2
         self.setWindowTitle('Fitlog - Sign in')
         self.resize(380, 720)
@@ -686,7 +648,9 @@ class inregistrare2(QMainWindow):
         widgetprincipal = QWidget()
         widgetprincipal.setObjectName('widgetprincipal')
         widgetprincipal.setStyleSheet(
-            f"#widgetprincipal{{ border-image: url('{BG_PATH}'); }}"
+            f"#widgetprincipal{{\n"
+            f"border-image:url({BG_PATH});\n"
+            f"}}"
         )
         widgetprincipal.setContentsMargins(40, 5, 40, 70)
         layout = QVBoxLayout(widgetprincipal)
@@ -940,9 +904,32 @@ class inregistrare2(QMainWindow):
         if self.Heighttext.text().strip() == "" or self.Weighttext.text().strip() == "" or self.sagetica1.currentIndex() == -1 or self.sagetica2.currentIndex() == -1:
             QMessageBox.warning(self, "Error", "Please fill in all fields!")
             return
-        self.fereastranoua = paginadestart(fereastra_alege=self)
-        self.fereastranoua.show()
-        self.hide()
+
+        try:
+            conn = sqlite3.connect("fitlog.db")
+            cursor = conn.cursor()
+            cursor.execute('''
+                INSERT INTO users (fullname, age, email, password, height, weight, goal, is_athlete)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+            ''', (
+                self.user_data.get('fullname'),
+                int(self.user_data.get('age', 0)),
+                self.user_data.get('email'),
+                hash_password(self.user_data.get('password', '')),
+                int(self.Heighttext.text()),
+                int(self.Weighttext.text()),
+                self.sagetica1.currentText(),
+                self.sagetica2.currentText()
+            ))
+            conn.commit()
+            conn.close()
+
+            QMessageBox.information(self, "Success", "Account created successfully!")
+            self.fereastranoua = paginadestart(fereastra_alege=self)
+            self.fereastranoua.show()
+            self.hide()
+        except sqlite3.IntegrityError:
+            QMessageBox.warning(self, "Error", "An account with this email already exists!")
 
     def go_back(self):
         if self.fereastra_sign2:
@@ -961,7 +948,9 @@ class inregistrare(QMainWindow):
         widgetprincipal = QWidget()
         widgetprincipal.setObjectName('widgetprincipal')
         widgetprincipal.setStyleSheet(
-            f"#widgetprincipal{{ border-image: url('{BG_PATH}'); }}"
+            f"#widgetprincipal{{\n"
+            f"border-image:url({BG_PATH});\n"
+            f"}}"
         )
         widgetprincipal.setContentsMargins(40, 4, 40, 70)
         layout = QVBoxLayout(widgetprincipal)
@@ -1195,10 +1184,36 @@ class inregistrare(QMainWindow):
             self.passwordtext.setEchoMode(QLineEdit.EchoMode.Password)
 
     def intrareinregistrare2(self):
+        fullname = self.fullnametext.text().strip()
+        age = self.agetext.text().strip()
+        email_curat = self.emailtext.text().strip()
+        password = self.passwordtext.text().strip()
+
         if self.fullnametext.text().strip() == "" or self.agetext.text().strip() == "" or self.emailtext.text().strip() == "" or self.passwordtext.text().strip() == "":
             QMessageBox.warning(self, "Error", "Please fill in all fields!")
             return
-        self.fereastranoua = inregistrare2(fereastra_sign2=self)
+
+        if not is_valid_email(email_curat):
+            QMessageBox.warning(self, "Error", "Please enter a valid email address!")
+            return
+
+        conn = sqlite3.connect("fitlog.db")
+        cursor = conn.cursor()
+        cursor.execute("SELECT id FROM users WHERE email = ?", (email_curat,))
+        user_exist = cursor.fetchone()
+        conn.close()
+
+        if user_exist:
+            QMessageBox.warning(self, "Error", "An account with this email already exists!")
+            return
+
+        user_data = {
+            "fullname": fullname,
+            "age": age,
+            "email": email_curat,
+            "password": password
+        }
+        self.fereastranoua = inregistrare2(user_data=user_data, fereastra_sign2=self)
         self.fereastranoua.show()
         self.hide()
 
@@ -1209,8 +1224,9 @@ class inregistrare(QMainWindow):
 
 
 class Parolanoua(QMainWindow):
-    def __init__(self, fereastra_parola=None):
+    def __init__(self, user_email=None, fereastra_parola=None):
         super().__init__()
+        self.user_email = user_email
         self.fereastra_parola = fereastra_parola
         self.setWindowTitle('Fitlog - Forgot your password')
         self.resize(380, 720)
@@ -1219,7 +1235,9 @@ class Parolanoua(QMainWindow):
         widgetprincipal = QWidget()
         widgetprincipal.setObjectName('widgetprincipal')
         widgetprincipal.setStyleSheet(
-            f"#widgetprincipal{{ border-image: url('{BG_PATH}'); }}"
+            f"#widgetprincipal{{\n"
+            f"border-image:url({BG_PATH});\n"
+            f"}}"
         )
         widgetprincipal.setContentsMargins(40, 5, 40, 70)
 
@@ -1350,6 +1368,14 @@ class Parolanoua(QMainWindow):
         if self.passwordtext1.text() != self.passwordtext2.text():
             QMessageBox.warning(self, "Error", "Passwords do not match!")
             return
+
+        conn = sqlite3.connect("fitlog.db")
+        cursor = conn.cursor()
+        cursor.execute("UPDATE users SET password = ? WHERE email = ?", (hash_password(self.passwordtext1.text().strip()), self.user_email))
+        conn.commit()
+        conn.close()
+
+        QMessageBox.information(self, "Success", "Password reset successfully!")
         self.fereastra_logare = logare(fereastra_anterioara=self)
         self.fereastra_logare.show()
         self.hide()
@@ -1361,8 +1387,9 @@ class Parolanoua(QMainWindow):
 
 
 class Code(QMainWindow):
-    def __init__(self, fereastra_send=None):
+    def __init__(self, user_email=None, fereastra_send=None):
         super().__init__()
+        self.user_email = user_email
         self.fereastra_send = fereastra_send
         self.setWindowTitle('Fitlog - Forgot your password')
         self.resize(380, 720)
@@ -1375,7 +1402,9 @@ class Code(QMainWindow):
         widgetprincipal = QWidget()
         widgetprincipal.setObjectName('widgetprincipal')
         widgetprincipal.setStyleSheet(
-            f"#widgetprincipal{{ border-image: url('{BG_PATH}'); }}"
+            f"#widgetprincipal{{\n"
+            f"border-image:url({BG_PATH});\n"
+            f"}}"
         )
         widgetprincipal.setContentsMargins(40, 5, 40, 70)
 
@@ -1533,7 +1562,7 @@ class Code(QMainWindow):
         if any(box.text().strip() == "" for box in self.inputs):
             QMessageBox.warning(self, "Error", "Please enter the full code!")
             return
-        self.fereastranoua = Parolanoua(fereastra_parola=self)
+        self.fereastranoua = Parolanoua(user_email=self.user_email, fereastra_parola=self)
         self.fereastranoua.show()
         self.hide()
 
@@ -1554,7 +1583,9 @@ class Uitareparola(QMainWindow):
         widgetprincipal = QWidget()
         widgetprincipal.setObjectName('widgetprincipal')
         widgetprincipal.setStyleSheet(
-            f"#widgetprincipal{{ border-image: url('{BG_PATH}'); }}"
+            f"#widgetprincipal{{\n"
+            f"border-image:url({BG_PATH});\n"
+            f"}}"
         )
         widgetprincipal.setContentsMargins(40, 5, 40, 70)
 
@@ -1649,10 +1680,22 @@ class Uitareparola(QMainWindow):
         self.setCentralWidget(widgetprincipal)
 
     def primirecod(self):
-        if self.emailtext.text().strip() == "":
+        email_curat = self.emailtext.text().strip()
+        if email_curat == "":
             QMessageBox.warning(self, "Error", "Please enter your email address!")
             return
-        self.fereastranoua = Code(fereastra_send=self)
+
+        conn = sqlite3.connect("fitlog.db")
+        cursor = conn.cursor()
+        cursor.execute("SELECT id FROM users WHERE email = ?", (email_curat,))
+        user_exist = cursor.fetchone()
+        conn.close()
+
+        if not user_exist:
+            QMessageBox.warning(self, "Error", "No account found with this email!")
+            return
+
+        self.fereastranoua = Code(user_email=email_curat, fereastra_send=self)
         self.fereastranoua.show()
         self.hide()
 
@@ -1673,7 +1716,9 @@ class logare(QMainWindow):
         widgetprincipal = QWidget()
         widgetprincipal.setObjectName('widgetprincipal')
         widgetprincipal.setStyleSheet(
-            f"#widgetprincipal{{ border-image: url('{BG_PATH}'); }}"
+            f"#widgetprincipal{{\n"
+            f"border-image:url({BG_PATH});\n"
+            f"}}"
         )
         widgetprincipal.setContentsMargins(40, 5, 40, 70)
 
@@ -1836,12 +1881,25 @@ class logare(QMainWindow):
             self.passwordtext.setEchoMode(QLineEdit.EchoMode.Password)
 
     def intrarecont(self):
-        if self.emailtext.text().strip() == "" or self.passwordtext.text().strip() == "":
+        email_curat = self.emailtext.text().strip()
+        parola_introdusa = self.passwordtext.text().strip()
+
+        if email_curat == "" or parola_introdusa == "":
             QMessageBox.warning(self, "Error", "Please enter your email and password!")
             return
-        self.fereastra_start = paginadestart(fereastra_alege=self)
-        self.fereastra_start.show()
-        self.hide()
+
+        conn = sqlite3.connect("fitlog.db")
+        cursor = conn.cursor()
+        cursor.execute("SELECT id FROM users WHERE email = ? AND password = ?", (email_curat, hash_password(parola_introdusa)))
+        user = cursor.fetchone()
+        conn.close()
+
+        if user:
+            self.fereastra_start = paginadestart(fereastra_alege=self)
+            self.fereastra_start.show()
+            self.hide()
+        else:
+            QMessageBox.warning(self, "Error", "Invalid email or password!")
 
     def uitareparola(self):
         self.fereastra_uitare_parola = Uitareparola(fereastra_uitare=self)
@@ -1865,7 +1923,9 @@ class primaclasa(QMainWindow):
         widgetprincipal = QWidget()
         widgetprincipal.setObjectName('widgetprincipal')
         widgetprincipal.setStyleSheet(
-            f"#widgetprincipal{{ border-image: url('{BG_PATH}'); }}"
+            f"#widgetprincipal{{\n"
+            f"border-image:url({BG_PATH});\n"
+            f"}}"
         )
         widgetprincipal.setContentsMargins(40, 70, 40, 70)
 
@@ -1940,6 +2000,7 @@ class primaclasa(QMainWindow):
 
 
 if __name__ == "__main__":
+    init_db()
     app = QApplication(sys.argv)
     app_principal = primaclasa()
     app_principal.show()
